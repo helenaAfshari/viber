@@ -344,8 +344,12 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                           child: Column(
                             children: [
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                  children: [
                                       Text("Contacts"),
+                                           SizedBox(width: 210,),
+                                       Text("All"),
+                                        Text("viber"),
                                       
                                  ],
                               ),
