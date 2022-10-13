@@ -50,7 +50,7 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 
                 label: 'Chat',
-                backgroundColor: Color.fromARGB(255, 162, 181, 229),
+               
               ),
               BottomNavigationBarItem(
                 icon: 
@@ -61,7 +61,7 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 
                 label: 'Calls',
-                backgroundColor: Color.fromARGB(255, 175, 177, 180),
+              
               ),
               BottomNavigationBarItem(
                 icon: 
