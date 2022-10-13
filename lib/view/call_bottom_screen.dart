@@ -336,8 +336,31 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                   Stack(
                     children: [
                       Container(
-                        height: 5,
-                        width: 5,
+                        height: Get.height/2,
+                        width: Get.width,
+                        color: Colors.red,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.vertical,
+                          child: Column(
+                            children: [
+                              Row(
+                                 children: [
+                                      Text("Contacts"),
+                                      
+                                 ],
+                              ),
+                              // ListView.builder(
+                              //   shrinkWrap: true,
+                              // itemCount: 1,
+                              // scrollDirection: Axis.vertical,
+                              //   itemBuilder: (context, index) {
+                              //   return 
+                              // },)
+                            ],
+                                
+                          ),
+                        ),
+
                       )
                     ],
                   )

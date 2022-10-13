@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/MainScreen', page: (() => MainScreen())),
         GetPage(name: '/ContactListScreen', page: () => ContactListScreen(),binding: BindingContactController()),
        ],      
-      home:CalsBottomScreen()
+      home:MainScreen()
          
       
     );
