@@ -78,3 +78,26 @@ TextStyle viewAllStyle = GoogleFonts.redHatText(
 );
 
 
+TextStyle selectedItem = GoogleFonts.redHatText(
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+    color: colorSelectItem,
+);
+
+TextStyle unSelectedItem = GoogleFonts.redHatText(
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+    color: colorUnSelectItem,
+);
+
+TextStyle contactTextStyle = GoogleFonts.redHatText(
+    fontSize: 18,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+    color: colorIconViber,
+);
+
+
+

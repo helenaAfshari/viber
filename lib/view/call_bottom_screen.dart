@@ -22,6 +22,7 @@ class CalsBottomScreen extends StatefulWidget {
 }
 
 class _CalsBottomScreenState extends State<CalsBottomScreen> {
+  RxInt selectedIndex = 0.obs;
   UserInboxListController userInboxListController =
       Get.put(UserInboxListController());
 
@@ -339,20 +340,53 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                         height: Get.height/2,
                         width: Get.width,
                         color: Colors.red,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.vertical,
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                 children: [
-                                      Text("Contacts"),
-                                           SizedBox(width: 210,),
-                                       Text("All"),
-                                        Text("viber"),
+                           
+                         child: 
+                         Row(
+
+                           children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 351),
+                              child: Text("Contact",style: contactTextStyle,),
+                            ),
+                            SizedBox(width: Get.width/1.7,),
+                             Row(
+                              
+                              children: [
+      
+                                  ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: selectItem.length,
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) => 
+                                      Obx(
+                                        () =>  GestureDetector(
+                                          onTap: () {
+                                            selectedIndex.value = index;
+                                            
+                                          },
+                                          child: 
+                                
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 10),
+                                          child: Text(selectItem[index],style: 
+                                          index == selectedIndex.value?selectedItem:unSelectedItem,),
+                                        ),
+                                         
+                                          
+                                          ),
+                                        
+                                      ),
                                       
-                                 ],
-                              ),
+                                        
+                                  )
+                                  
+                                
+                              ], 
+                             ),
+                           ],
+                         ),
+                          
                               // ListView.builder(
                               //   shrinkWrap: true,
                               // itemCount: 1,
@@ -360,16 +394,16 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                               //   itemBuilder: (context, index) {
                               //   return 
                               // },)
-                            ],
+                            
                                 
-                          ),
-                        ),
+                          
+                        
 
                       )
                     ],
                   )
                   
-                ],
+                ]
               ),
             ),
 
@@ -386,3 +420,4 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
 
   }
 }
+List<String> selectItem =['All','Viber'];

@@ -26,3 +26,7 @@ Color colorBackgroundAppBar = Color.fromARGB(255, 252, 253, 253);
 Color colorBackgroundAppBarNested = Color.fromARGB(255, 238, 247, 245);
 Color colorAppBarNested = Color.fromARGB(255, 50, 221, 116);
 Color colorBuCredit = Color.fromARGB(255, 235, 228, 228);
+
+
+Color colorSelectItem =Color.fromARGB(255, 191, 4, 238);
+Color colorUnSelectItem =Color.fromARGB(255, 104, 35, 194);
