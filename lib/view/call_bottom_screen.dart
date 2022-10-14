@@ -10,6 +10,7 @@ import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/component/widgets.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/myString.dart';
+import 'package:viber_getx/controller/make_phone_calls.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
 import 'package:viber_getx/view/chat_button_screen.dart';
@@ -83,7 +84,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                           ),
                           const SizedBox(
                             width: 2,
-                            height: 2,
+                            height: 3,
                           ),
                           Column(
                             children: [
@@ -320,6 +321,8 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                   SizedBox(
                     height: 15,
                   ),
+                       
+
 
                  Stack(
                    children: [                     
@@ -328,6 +331,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                         width: Get.width,
                         color: Colors.red,
                         child: Row(
+                          
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(bottom: 351),
@@ -338,60 +342,74 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                             ),
                             SizedBox(
                               width: Get.width / 1.7,
+                              
                             ),
                             //change color
-                            Row(
-                              children: [
-                                SizedBox(
-                                  child:     
-                                      ListView.builder(
-                                      shrinkWrap: true,
-                                      itemCount: selectItem.length,
-                                      scrollDirection: Axis.horizontal,
-                                      itemBuilder: (context, index) => Obx(
-                                        () => GestureDetector(
-                                          onTap: () {
-                                            selectedIndex.value = index;
-                                           
-                                          },
-                                          child: Padding(
-                                            padding:
-                                                const EdgeInsets.only(left: 10),
-                                            child: Text(
-                                              selectItem[index],
-                                              style: index == selectedIndex.value
-                                                  ? selectedItem
-                                                  : unSelectedItem,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                      
+                      
+                               Padding(
+                                 padding: const EdgeInsets.only(bottom: 346),
+                                 child: Row(
+                                   children: [
                                     
-                                
-                                )
-                              ],
-                            ),
+                                     Padding(
+                                       padding: const EdgeInsets.only(top: 5),
+                                       child: SizedBox(
+                                         
+                                       
+                                         
+                                         child:   
+                                         
+                                             ListView.builder(
+                                             shrinkWrap: true,
+                                             itemCount: selectItem.length,
+                                             scrollDirection: Axis.horizontal,
+                                             itemBuilder: (context, index) => Obx(
+                                               () => GestureDetector(
+                                                 onTap: () {
+                                                   selectedIndex.value = index;
+                                                  
+                                                 },
+                                                 child: Padding(
+                                                   padding:
+                                                       const EdgeInsets.only(left: 10),
+                                                   child: Text(
+                                                     selectItem[index],
+                                                     style: index == selectedIndex.value
+                                                         ? selectedItem
+                                                         : unSelectedItem,
+                                                   ),
+                                                 ),
+                                               ),
+                                             ),
+                                           ),
+                                           
+                                       
+                                       ),
+                                     )
+                                   ],
+                                 ),
+                               ),
+                            
+                           
                           ],
-                        ),
-
-                        // ListView.builder(
-                        //   shrinkWrap: true,
-                        // itemCount: 1,
-                        // scrollDirection: Axis.vertical,
-                        //   itemBuilder: (context, index) {
-                        //   return
-                        // },)
-                      )
+           
+                      ),
+                     )
                    ],
                  ),
+                      
+                
                 ],
+
               ),
             ),
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            makingPhoneCalls();
+          },
           backgroundColor: colorFloatingAction,
           child: Icon(Icons.contact_phone_rounded),
         ),
