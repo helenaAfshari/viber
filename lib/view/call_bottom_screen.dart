@@ -350,10 +350,11 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                               child: Text("Contact",style: contactTextStyle,),
                             ),
                             SizedBox(width: Get.width/1.7,),
+                            //change color 
                              Row(
                               
                               children: [
-      
+                                     
                                   ListView.builder(
                                   shrinkWrap: true,
                                   itemCount: selectItem.length,
