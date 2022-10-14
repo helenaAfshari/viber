@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:viber_getx/component/bottom_bar.dart';
+import 'package:viber_getx/component/selected.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/component/widgets.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/myString.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
+import 'package:viber_getx/view/chat_button_screen.dart';
 
 class CalsBottomScreen extends StatefulWidget {
   CalsBottomScreen({
@@ -120,7 +122,6 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                 ),
               ),
             ],
-
             body: SingleChildScrollView(
               child: Column(
                 children: [
@@ -205,210 +206,188 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                       );
                     },
                   ),
-                      
-                      //Invite To Viber
-                      //TODO Add Controller Invite toViber list
-                    
-                 SizedBox(height: 12,),
+
+                  //Invite To Viber
+                  //TODO Add Controller Invite toViber list
+
+                  SizedBox(
+                    height: 12,
+                  ),
 
                   Stack(
                     children: [
-                    
-                     
                       Container(
-                       
                         width: 400,
                         height: 100,
                         color: badg,
                         child: SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
-
-                          child: Row(
-                          
-                            children: [
-                          
+                          child: Row(children: [
                             ListView.builder(
-                              
                               shrinkWrap: true,
                               itemCount: 4,
                               scrollDirection: Axis.horizontal,
                               itemBuilder: (context, index) {
                                 return Padding(
-                                  padding:  EdgeInsets.only(
+                                  padding: EdgeInsets.only(
                                       top: 25, bottom: 25, left: 10),
                                   child: Container(
                                     width: 220,
                                     height: 20,
-                                    decoration:  BoxDecoration(
+                                    decoration: BoxDecoration(
                                       borderRadius: BorderRadius.horizontal(
                                           left: Radius.circular(9),
                                           right: Radius.circular(9)),
                                       color: colorBackgroundBottomBar,
-                                    
                                     ),
-                                    child:
-                                    
-                                       
-                                         Row(
-                                    children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 30),
-                                    child: Container(
-                                height: 20,
-                                width: 20,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: unselectedBottomBar
-                                ),
-                                child: Center(
-                                  child: Icon(CupertinoIcons.multiply,size: 15,)),
-                              ),
-                                  ),
-                                          
-                                          const SizedBox(
-                                            width: 11,
-                                          ),
-                                          Container(
-                                            width: Get.width / 12,
-                                            height: Get.height / 12,
-                                            decoration: BoxDecoration(
-                                              image: DecorationImage(
-                                                  image: AssetImage(
-                                                      Assets.images.avatar.path)),
-                                            ),
-                                          ),
-                                          
-                                          const SizedBox(
-                                            width: 4,
-                                          ),
-                                          const Text(
-                                            "name",
-                                            style: TextStyle(
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            width: 50,
-                                          ),
-                                          Container(
-                                            width: 60,
+                                    child: Row(
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(bottom: 30),
+                                          child: Container(
                                             height: 20,
+                                            width: 20,
                                             decoration: BoxDecoration(
-                                                color: colorActionAppbar,
-                                                shape: BoxShape.rectangle,
-                                                borderRadius:
-                                                    BorderRadius.circular(10)),
+                                                shape: BoxShape.circle,
+                                                color: unselectedBottomBar),
                                             child: Center(
-                                                child: Text(
-                                              "Invite",
-                                              style: TextStyle(fontSize: 10,color: lightScafoldBackgroundColor),
+                                                child: Icon(
+                                              CupertinoIcons.multiply,
+                                              size: 15,
                                             )),
-                                            
                                           ),
-                                            
-                        
-                                        ],
-
-                                       
-                                      ),
-                                       
+                                        ),
+                                        const SizedBox(
+                                          width: 11,
+                                        ),
+                                        Container(
+                                          width: Get.width / 12,
+                                          height: Get.height / 12,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                                image: AssetImage(
+                                                    Assets.images.avatar.path)),
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 4,
+                                        ),
+                                        const Text(
+                                          "name",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                        const SizedBox(
+                                          width: 50,
+                                        ),
+                                        Container(
+                                          width: 60,
+                                          height: 20,
+                                          decoration: BoxDecoration(
+                                              color: colorActionAppbar,
+                                              shape: BoxShape.rectangle,
+                                              borderRadius:
+                                                  BorderRadius.circular(10)),
+                                          child: Center(
+                                              child: Text(
+                                            "Invite",
+                                            style: TextStyle(
+                                                fontSize: 10,
+                                                color:
+                                                    lightScafoldBackgroundColor),
+                                          )),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  
                                 );
-                                
                               },
                             ),
-                            
-                             
-                          ]
-                          ),
+                          ]),
                         ),
-                        
                       ),
-                      Text("Invite TO VIBER",style: TextStyle(fontSize: 10),)
-                  
+                      Text(
+                        "Invite TO VIBER",
+                        style: TextStyle(fontSize: 10),
+                      )
                     ],
                   ),
 
-
                   //Contact
                   //TODO Add Controller Contacts
-                  SizedBox(height: 15,),
-                  Stack(
-                    children: [
-                      Container(
-                        height: Get.height/2,
+                  SizedBox(
+                    height: 15,
+                  ),
+
+                 Stack(
+                   children: [                     
+                     Container(
+                        height: Get.height / 2,
                         width: Get.width,
                         color: Colors.red,
-                           
-                         child: 
-                         Row(
-
-                           children: [
+                        child: Row(
+                          children: [
                             Padding(
                               padding: const EdgeInsets.only(bottom: 351),
-                              child: Text("Contact",style: contactTextStyle,),
+                              child: Text(
+                                "Contact",
+                                style: contactTextStyle,
+                              ),
                             ),
-                            SizedBox(width: Get.width/1.7,),
-                            //change color 
-                             Row(
-                              
+                            SizedBox(
+                              width: Get.width / 1.7,
+                            ),
+                            //change color
+                            Row(
                               children: [
-                                     
-                                  ListView.builder(
-                                  shrinkWrap: true,
-                                  itemCount: selectItem.length,
-                                  scrollDirection: Axis.horizontal,
-                                  itemBuilder: (context, index) => 
-                                      Obx(
-                                        () =>  GestureDetector(
+                                SizedBox(
+                                  child:     
+                                      ListView.builder(
+                                      shrinkWrap: true,
+                                      itemCount: selectItem.length,
+                                      scrollDirection: Axis.horizontal,
+                                      itemBuilder: (context, index) => Obx(
+                                        () => GestureDetector(
                                           onTap: () {
                                             selectedIndex.value = index;
-                                            
+                                           
                                           },
-                                          child: 
-                                
-                                        Padding(
-                                          padding: const EdgeInsets.only(left: 10),
-                                          child: Text(selectItem[index],style: 
-                                          index == selectedIndex.value?selectedItem:unSelectedItem,),
-                                        ),
-                                         
-                                          
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsets.only(left: 10),
+                                            child: Text(
+                                              selectItem[index],
+                                              style: index == selectedIndex.value
+                                                  ? selectedItem
+                                                  : unSelectedItem,
+                                            ),
                                           ),
-                                        
+                                        ),
                                       ),
-                                      
-                                        
-                                  )
-                                  
+                                    ),
+                                    
                                 
-                              ], 
-                             ),
-                           ],
-                         ),
-                          
-                              // ListView.builder(
-                              //   shrinkWrap: true,
-                              // itemCount: 1,
-                              // scrollDirection: Axis.vertical,
-                              //   itemBuilder: (context, index) {
-                              //   return 
-                              // },)
-                            
-                                
-                          
-                        
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
 
+                        // ListView.builder(
+                        //   shrinkWrap: true,
+                        // itemCount: 1,
+                        // scrollDirection: Axis.vertical,
+                        //   itemBuilder: (context, index) {
+                        //   return
+                        // },)
                       )
-                    ],
-                  )
-                  
-                ]
+                   ],
+                 ),
+                ],
               ),
             ),
-
-        
           ),
         ),
         floatingActionButton: FloatingActionButton(
@@ -418,7 +397,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
         ),
       ),
     );
-
   }
 }
-List<String> selectItem =['All','Viber'];
+
+List<String> selectItem = ['All', 'Viber'];
