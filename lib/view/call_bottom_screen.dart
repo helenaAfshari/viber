@@ -10,7 +10,7 @@ import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/component/widgets.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/myString.dart';
-import 'package:viber_getx/controller/make_phone_calls.dart';
+import 'package:viber_getx/controller/make_phone_calls_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
 import 'package:viber_getx/view/chat_button_screen.dart';

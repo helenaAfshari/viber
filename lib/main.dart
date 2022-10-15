@@ -15,7 +15,6 @@ import 'package:viber_getx/view/main_screen.dart';
 import 'model/user_contact_list_model.dart';
 
 
-
 void main() async{
   await Hive.initFlutter();
   Hive.registerAdapter(UserContactListModelAdapter());
