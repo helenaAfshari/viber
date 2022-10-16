@@ -330,82 +330,109 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                            Column(
                          
                            children: [
-                            Container(
-                              height: Get.height,
-                              color: Colors.amber,
-                              child: Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text("Contact",style: contactTextStyle,),
-                                      SizedBox(width: 231,),
-                                      Row(
-                                        children: [
-                                            SizedBox(
-                                              height: 15,
-          
-                                              child: ListView.builder(
-                                                shrinkWrap: true,
-                                                itemCount: selectItem.length,
-                                                scrollDirection: Axis.horizontal,
-                                                itemBuilder: (context, index) => Obx(
-                                                  () => GestureDetector(
-                                                    onTap: () {
-                                                      selectedIndex.value = index;
+                                Row(
+                                      children: [
+                                        Text("Contact",style: contactTextStyle,),
+                                        SizedBox(width: 231,),
+                                        Row(
+                                          children: [
+                                              SizedBox(
+                                                height: 15,
+                                        
+                                                child: ListView.builder(
+                                                  shrinkWrap: true,
+                                                  itemCount: selectItem.length,
+                                                  scrollDirection: Axis.horizontal,
+                                                  itemBuilder: (context, index) => Obx(
+                                                    () => GestureDetector(
+                                                      onTap: () {
+                                                        selectedIndex.value = index;
+                                                       
+                                                      },
+                                                      child: 
                                                      
-                                                    },
-                                                    child: 
-                                                   
-                                                    Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(left: 10),
-                                                      child: Text(
-                                                        selectItem[index],
-                                                        style: index == selectedIndex.value
-                                                            ? selectedItem
-                                                            : unSelectedItem,
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets.only(left: 10),
+                                                        child: Text(
+                                                          selectItem[index],
+                                                          style: index == selectedIndex.value
+                                                              ? selectedItem
+                                                              : unSelectedItem,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                          ),
                                             ),
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                               
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 15,left: 12),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        width: 40,
-                                        height: 40,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          image: DecorationImage(image: Image.asset(Assets.images.avatar.path).image),
-                                        ),
-                                      ),
-                                       SizedBox(width: 7,),
-                                       Text("name"),
-                                      SizedBox(width: 245,),
-                                      Container(
-                                        height: 30,
-                                        width: 30,
-                                        decoration:  BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          color: unselectedBottomBar,
+                                              ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                            Container(
+                              height: Get.height,
+                              color: Color.fromARGB(255, 250, 250, 249),
 
-                                        ),
-                                      ),
-
-
-                                    ],
-                                  ),
-                                )
+                              child:
+                               ListView.builder(
+                              itemBuilder: (context, index) {
+                                return Column(
+                                  children: [
+                                
                                  
-                                ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 15,left: 12),
+                                    child: Row(
+                                    
+                                      children: [
+                                        Container(
+                                          width: 40,
+                                          height: 40,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            image: DecorationImage(image: Image.asset(Assets.images.avatar.path).image),
+                                          ),
+                                        ),
+                                         SizedBox(width: 7,),
+                                         Text("name"),
+                                        SizedBox(width: 156,),
+                                      
+                                        Container(
+                                          width: 65,
+                                          height: 30,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.rectangle,
+                                                 color: unselectedBottomBar,
+                                                 borderRadius: BorderRadius.circular(15),
+                                          ),
+                                          child: Center(child: Text("invite")),
+                                        ),
+                              
+                                        SizedBox(width: 12,),
+                                          Container(
+                                          height: 35,
+                                          width: 35,
+                                          decoration:  BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: unselectedBottomBar,
+                              
+                                          ),
+                                          child: IconButton(
+                                            onPressed: () {
+                                              
+                                            },
+                                            icon:Icon(Icons.call,size: 15,) ),
+                                            
+                                        ),
+                              
+                              
+                                      ],
+                                    ),
+                                  )
+                                   
+                                  ],
+                                );
+                              },
                               ),
                             )
          
