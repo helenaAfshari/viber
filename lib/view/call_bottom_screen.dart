@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
@@ -322,85 +323,102 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                     height: 15,
                   ),
                        
+                   
+                       Stack(
+                        
+                         children: [
+                           Column(
+                         
+                           children: [
+                            Container(
+                              height: Get.height,
+                              color: Colors.amber,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Text("Contact",style: contactTextStyle,),
+                                      SizedBox(width: 231,),
+                                      Row(
+                                        children: [
+                                            SizedBox(
+                                              height: 15,
+          
+                                              child: ListView.builder(
+                                                shrinkWrap: true,
+                                                itemCount: selectItem.length,
+                                                scrollDirection: Axis.horizontal,
+                                                itemBuilder: (context, index) => Obx(
+                                                  () => GestureDetector(
+                                                    onTap: () {
+                                                      selectedIndex.value = index;
+                                                     
+                                                    },
+                                                    child: 
+                                                   
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(left: 10),
+                                                      child: Text(
+                                                        selectItem[index],
+                                                        style: index == selectedIndex.value
+                                                            ? selectedItem
+                                                            : unSelectedItem,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                          ),
+                                            ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                               
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 15,left: 12),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width: 40,
+                                        height: 40,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(image: Image.asset(Assets.images.avatar.path).image),
+                                        ),
+                                      ),
+                                       SizedBox(width: 7,),
+                                       Text("name"),
+                                      SizedBox(width: 245,),
+                                      Container(
+                                        height: 30,
+                                        width: 30,
+                                        decoration:  BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: unselectedBottomBar,
+
+                                        ),
+                                      ),
 
 
-                 Stack(
-                   children: [                     
-                     Container(
-                        height: Get.height / 2,
-                        width: Get.width,
-                        color: Colors.red,
-                        child: Row(
-                          
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 351),
-                              child: Text(
-                                "Contact",
-                                style: contactTextStyle,
+                                    ],
+                                  ),
+                                )
+                                 
+                                ],
                               ),
-                            ),
-                            SizedBox(
-                              width: Get.width / 1.7,
-                              
-                            ),
-                            //change color
-                      
-                      
-                               Padding(
-                                 padding: const EdgeInsets.only(bottom: 346),
-                                 child: Row(
-                                   children: [
-                                    
-                                     Padding(
-                                       padding: const EdgeInsets.only(top: 5),
-                                       child: SizedBox(
-                                         
-                                       
-                                         
-                                         child:   
-                                         
-                                             ListView.builder(
-                                             shrinkWrap: true,
-                                             itemCount: selectItem.length,
-                                             scrollDirection: Axis.horizontal,
-                                             itemBuilder: (context, index) => Obx(
-                                               () => GestureDetector(
-                                                 onTap: () {
-                                                   selectedIndex.value = index;
-                                                  
-                                                 },
-                                                 child: Padding(
-                                                   padding:
-                                                       const EdgeInsets.only(left: 10),
-                                                   child: Text(
-                                                     selectItem[index],
-                                                     style: index == selectedIndex.value
-                                                         ? selectedItem
-                                                         : unSelectedItem,
-                                                   ),
-                                                 ),
-                                               ),
-                                             ),
-                                           ),
-                                           
-                                       
-                                       ),
-                                     )
-                                   ],
-                                 ),
-                               ),
-                            
-                           
-                          ],
-           
-                      ),
-                     )
-                   ],
-                 ),
+                            )
+         
+                           ],
+
+                         ),
+                         ],
+                       ),
+                   ], 
+                
                       
                 
-                ],
+                
 
               ),
             ),
