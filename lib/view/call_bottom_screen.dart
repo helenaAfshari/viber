@@ -143,71 +143,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                     ],
                   ),
 
-                  ListView.builder(
-                    itemCount: 3,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                height: 50,
-                                color: Color.fromARGB(255, 248, 246, 246),
-                                width: Get.width / 1.1,
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Container(
-                                          height: 45,
-                                          width: 45,
-                                          decoration: BoxDecoration(
-                                            color: Colors.amber,
-                                            shape: BoxShape.circle,
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    Assets.images.avatar.path)),
-                                          ),
-                                        ),
-                                        Column(
-                                          children: [
-                                            Text("name"),
-                                            Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.call_made_rounded,
-                                                  size: 13,
-                                                ),
-                                                Text("audioCall"),
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          width: Get.width / 2,
-                                        ),
-                                        Container(
-                                          width: 40,
-                                          height: 40,
-                                          decoration: BoxDecoration(
-                                            color: Colors.green,
-                                            shape: BoxShape.circle,
-                                          ),
-                                          child: Icon(Icons.call),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      );
-                    },
-                  ),
+                  recentCallsList(),
 
                   //Invite To Viber
                   //TODO Add Controller Invite toViber list
@@ -216,106 +152,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                     height: 12,
                   ),
 
-                  Stack(
-                    children: [
-                      Container(
-                        width: 400,
-                        height: 100,
-                        color: badg,
-                        child: SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(children: [
-                            ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: 4,
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                return Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 25, bottom: 25, left: 10),
-                                  child: Container(
-                                    width: 220,
-                                    height: 20,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.horizontal(
-                                          left: Radius.circular(9),
-                                          right: Radius.circular(9)),
-                                      color: colorBackgroundBottomBar,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(bottom: 30),
-                                          child: Container(
-                                            height: 20,
-                                            width: 20,
-                                            decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: unselectedBottomBar),
-                                            child: Center(
-                                                child: Icon(
-                                              CupertinoIcons.multiply,
-                                              size: 15,
-                                            )),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 11,
-                                        ),
-                                        Container(
-                                          width: Get.width / 12,
-                                          height: Get.height / 12,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                    Assets.images.avatar.path)),
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 4,
-                                        ),
-                                        const Text(
-                                          "name",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          width: 50,
-                                        ),
-                                        Container(
-                                          width: 60,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                              color: colorActionAppbar,
-                                              shape: BoxShape.rectangle,
-                                              borderRadius:
-                                                  BorderRadius.circular(10)),
-                                          child: Center(
-                                              child: Text(
-                                            "Invite",
-                                            style: TextStyle(
-                                                fontSize: 10,
-                                                color:
-                                                    lightScafoldBackgroundColor),
-                                          )),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          ]),
-                        ),
-                      ),
-                      Text(
-                        "Invite TO VIBER",
-                        style: TextStyle(fontSize: 10),
-                      )
-                    ],
-                  ),
+                  inviteToViber(),
 
                   //Contact
                   //TODO Add Controller Contacts
@@ -324,123 +161,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                   ),
                        
                    
-                       Stack(
-                        
-                         children: [
-                           Column(
-                         
-                           children: [
-                                Row(
-                                      children: [
-                                        Text("Contact",style: contactTextStyle,),
-                                        SizedBox(width: 231,),
-                                        Row(
-                                          children: [
-                                              SizedBox(
-                                                height: 15,
-                                        
-                                                child: ListView.builder(
-                                                  shrinkWrap: true,
-                                                  itemCount: selectItem.length,
-                                                  scrollDirection: Axis.horizontal,
-                                                  itemBuilder: (context, index) => Obx(
-                                                    () => GestureDetector(
-                                                      onTap: () {
-                                                        selectedIndex.value = index;
-                                                       
-                                                      },
-                                                      child: 
-                                                     
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets.only(left: 10),
-                                                        child: Text(
-                                                          selectItem[index],
-                                                          style: index == selectedIndex.value
-                                                              ? selectedItem
-                                                              : unSelectedItem,
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                            ),
-                                              ),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                            Container(
-                              height: Get.height,
-                              color: Color.fromARGB(255, 250, 250, 249),
-
-                              child:
-                               ListView.builder(
-                              itemBuilder: (context, index) {
-                                return Column(
-                                  children: [
-                                
-                                 
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 15,left: 12),
-                                    child: Row(
-                                    
-                                      children: [
-                                        Container(
-                                          width: 40,
-                                          height: 40,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            image: DecorationImage(image: Image.asset(Assets.images.avatar.path).image),
-                                          ),
-                                        ),
-                                         SizedBox(width: 7,),
-                                         Text("name"),
-                                        SizedBox(width: 156,),
-                                      
-                                        Container(
-                                          width: 65,
-                                          height: 30,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.rectangle,
-                                                 color: unselectedBottomBar,
-                                                 borderRadius: BorderRadius.circular(15),
-                                          ),
-                                          child: Center(child: Text("invite")),
-                                        ),
-                              
-                                        SizedBox(width: 12,),
-                                          Container(
-                                          height: 35,
-                                          width: 35,
-                                          decoration:  BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: unselectedBottomBar,
-                              
-                                          ),
-                                          child: IconButton(
-                                            onPressed: () {
-                                              
-                                            },
-                                            icon:Icon(Icons.call,size: 15,) ),
-                                            
-                                        ),
-                              
-                              
-                                      ],
-                                    ),
-                                  )
-                                   
-                                  ],
-                                );
-                              },
-                              ),
-                            )
-         
-                           ],
-
-                         ),
-                         ],
-                       ),
+                       contactList(selectedIndex: selectedIndex),
                    ], 
                 
                       
@@ -459,6 +180,321 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
           child: Icon(Icons.contact_phone_rounded),
         ),
       ),
+    );
+  }
+}
+
+class recentCallsList extends StatelessWidget {
+  const recentCallsList({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: 3,
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      itemBuilder: (context, index) {
+        return Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                  height: 50,
+                  color: Color.fromARGB(255, 248, 246, 246),
+                  width: Get.width / 1.1,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            height: 45,
+                            width: 45,
+                            decoration: BoxDecoration(
+                              color: Colors.amber,
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      Assets.images.avatar.path)),
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Text("name"),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.call_made_rounded,
+                                    size: 13,
+                                  ),
+                                  Text("audioCall"),
+                                ],
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            width: Get.width / 2,
+                          ),
+                          Container(
+                            width: 40,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              color: Colors.green,
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(Icons.call),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        );
+      },
+    );
+  }
+}
+
+class contactList extends StatelessWidget {
+  const contactList({
+    Key? key,
+    required this.selectedIndex,
+  }) : super(key: key);
+
+  final RxInt selectedIndex;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+     
+      children: [
+        Column(
+      
+        children: [
+             Row(
+                   children: [
+                     Text("Contact",style: contactTextStyle,),
+                     SizedBox(width: 231,),
+                     Row(
+                       children: [
+                           SizedBox(
+                             height: 15,
+                     
+                             child: ListView.builder(
+                               shrinkWrap: true,
+                               itemCount: selectItem.length,
+                               scrollDirection: Axis.horizontal,
+                               itemBuilder: (context, index) => Obx(
+                                 () => GestureDetector(
+                                   onTap: () {
+                                     selectedIndex.value = index;
+                                    
+                                   },
+                                   child: 
+                                  
+                                   Padding(
+                                     padding:
+                                         const EdgeInsets.only(left: 10),
+                                     child: Text(
+                                       selectItem[index],
+                                       style: index == selectedIndex.value
+                                           ? selectedItem
+                                           : unSelectedItem,
+                                     ),
+                                   ),
+                                 ),
+                               ),
+                         ),
+                           ),
+                       ],
+                     )
+                   ],
+                 ),
+         Container(
+           height: Get.height,
+           color: Color.fromARGB(255, 250, 250, 249),
+
+           child:
+            ListView.builder(
+           itemBuilder: (context, index) {
+             return Column(
+               children: [
+             
+              
+               Padding(
+                 padding: const EdgeInsets.only(top: 15,left: 12),
+                 child: Row(
+                 
+                   children: [
+                     Container(
+                       width: 40,
+                       height: 40,
+                       decoration: BoxDecoration(
+                         shape: BoxShape.circle,
+                         image: DecorationImage(image: Image.asset(Assets.images.avatar.path).image),
+                       ),
+                     ),
+                      SizedBox(width: 7,),
+                      Text("name"),
+                     SizedBox(width: 156,),
+                   
+                     Container(
+                       width: 65,
+                       height: 30,
+                       decoration: BoxDecoration(
+                         shape: BoxShape.rectangle,
+                              color: unselectedBottomBar,
+                              borderRadius: BorderRadius.circular(15),
+                       ),
+                       child: Center(child: Text("invite")),
+                     ),
+           
+                     SizedBox(width: 12,),
+                       Container(
+                       height: 35,
+                       width: 35,
+                       decoration:  BoxDecoration(
+                         shape: BoxShape.circle,
+                         color: unselectedBottomBar,
+           
+                       ),
+                       child: IconButton(
+                         onPressed: () {
+                           
+                         },
+                         icon:Icon(Icons.call,size: 15,) ),
+                         
+                     ),
+           
+           
+                   ],
+                 ),
+               )
+                
+               ],
+             );
+           },
+           ),
+         )
+         
+        ],
+
+      ),
+      ],
+    );
+  }
+}
+
+class inviteToViber extends StatelessWidget {
+  const inviteToViber({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          width: 400,
+          height: 100,
+          color: badg,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(children: [
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: 4,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: EdgeInsets.only(
+                        top: 25, bottom: 25, left: 10),
+                    child: Container(
+                      width: 220,
+                      height: 20,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.horizontal(
+                            left: Radius.circular(9),
+                            right: Radius.circular(9)),
+                        color: colorBackgroundBottomBar,
+                      ),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(bottom: 30),
+                            child: Container(
+                              height: 20,
+                              width: 20,
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: unselectedBottomBar),
+                              child: Center(
+                                  child: Icon(
+                                CupertinoIcons.multiply,
+                                size: 15,
+                              )),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 11,
+                          ),
+                          Container(
+                            width: Get.width / 12,
+                            height: Get.height / 12,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      Assets.images.avatar.path)),
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 4,
+                          ),
+                          const Text(
+                            "name",
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 50,
+                          ),
+                          Container(
+                            width: 60,
+                            height: 20,
+                            decoration: BoxDecoration(
+                                color: colorActionAppbar,
+                                shape: BoxShape.rectangle,
+                                borderRadius:
+                                    BorderRadius.circular(10)),
+                            child: Center(
+                                child: Text(
+                              "Invite",
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  color:
+                                      lightScafoldBackgroundColor),
+                            )),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ]),
+          ),
+        ),
+        Text(
+          "Invite TO VIBER",
+          style: TextStyle(fontSize: 10),
+        )
+      ],
     );
   }
 }
