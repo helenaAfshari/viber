@@ -275,6 +275,7 @@ class contactList extends StatelessWidget {
            contactTabView(),
           ],
         ),
+        //change list 
          Obx(
            () =>  IndexedStack(
                 index: selectedIndex.value,
@@ -492,4 +493,4 @@ class inviteToViber extends StatelessWidget {
   }
 }
 
-List<String> selectItem = ['All', 'Viber'];
+List<String> selectItem = ['All', 'Viber'];         
