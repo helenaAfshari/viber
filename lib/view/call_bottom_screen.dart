@@ -159,15 +159,9 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                   SizedBox(
                     height: 15,
                   ),
-                       
-                   
-                       contactList(selectedIndex: selectedIndex),
-                   ], 
-                
-                      
-                
-                
 
+                  contactList(selectedIndex: selectedIndex),
+                ],
               ),
             ),
           ),
@@ -215,8 +209,7 @@ class recentCallsList extends StatelessWidget {
                               color: Colors.amber,
                               shape: BoxShape.circle,
                               image: DecorationImage(
-                                  image: AssetImage(
-                                      Assets.images.avatar.path)),
+                                  image: AssetImage(Assets.images.avatar.path)),
                             ),
                           ),
                           Column(
@@ -269,123 +262,128 @@ class contactList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-     
+    return Column(
       children: [
-        Column(
-      
-        children: [
-             Row(
-                   children: [
-                     Text("Contact",style: contactTextStyle,),
-                     SizedBox(width: 231,),
-                     Row(
-                       children: [
-                           SizedBox(
-                             height: 15,
-                     
-                             child: ListView.builder(
-                               shrinkWrap: true,
-                               itemCount: selectItem.length,
-                               scrollDirection: Axis.horizontal,
-                               itemBuilder: (context, index) => Obx(
-                                 () => GestureDetector(
-                                   onTap: () {
-                                     selectedIndex.value = index;
-                                    
-                                   },
-                                   child: 
-                                  
-                                   Padding(
-                                     padding:
-                                         const EdgeInsets.only(left: 10),
-                                     child: Text(
-                                       selectItem[index],
-                                       style: index == selectedIndex.value
-                                           ? selectedItem
-                                           : unSelectedItem,
-                                     ),
-                                   ),
-                                 ),
-                               ),
-                         ),
-                           ),
-                       ],
-                     )
-                   ],
-                 ),
-         Container(
-           height: Get.height,
-           color: Color.fromARGB(255, 250, 250, 249),
-
-           child:
-            ListView.builder(
-           itemBuilder: (context, index) {
-             return Column(
-               children: [
-             
-              
-               Padding(
-                 padding: const EdgeInsets.only(top: 15,left: 12),
-                 child: Row(
-                 
-                   children: [
-                     Container(
-                       width: 40,
-                       height: 40,
-                       decoration: BoxDecoration(
-                         shape: BoxShape.circle,
-                         image: DecorationImage(image: Image.asset(Assets.images.avatar.path).image),
-                       ),
-                     ),
-                      SizedBox(width: 7,),
-                      Text("name"),
-                     SizedBox(width: 156,),
-                   
-                     Container(
-                       width: 65,
-                       height: 30,
-                       decoration: BoxDecoration(
-                         shape: BoxShape.rectangle,
-                              color: unselectedBottomBar,
-                              borderRadius: BorderRadius.circular(15),
-                       ),
-                       child: Center(child: Text("invite")),
-                     ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              "Contact",
+              style: contactTextStyle,
+            ),
            
-                     SizedBox(width: 12,),
-                       Container(
-                       height: 35,
-                       width: 35,
-                       decoration:  BoxDecoration(
-                         shape: BoxShape.circle,
-                         color: unselectedBottomBar,
+           contactTabView(),
+          ],
+        ),
+         Obx(
+           () =>  IndexedStack(
+                index: selectedIndex.value,
+                children: [
+                 allContacts(),
+                  Container(color: Colors.blue,
+                  height: 50,
+                  width: 20,),
+                ],
+              )
            
-                       ),
-                       child: IconButton(
-                         onPressed: () {
-                           
-                         },
-                         icon:Icon(Icons.call,size: 15,) ),
-                         
-                     ),
-           
-           
-                   ],
-                 ),
-               )
-                
-               ],
-             );
-           },
-           ),
-         )
-         
-        ],
-
-      ),
+         ),
+       
       ],
     );
+  }
+
+  Container allContacts() {
+    return Container(
+        height: Get.height,
+        color: Color.fromARGB(255, 250, 250, 249),
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 15, left: 12),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image:
+                                  Image.asset(Assets.images.avatar.path)
+                                      .image),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 7,
+                      ),
+                      Text("name"),
+                      SizedBox(
+                        width: 156,
+                      ),
+                      Container(
+                        width: 65,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          color: unselectedBottomBar,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Center(child: Text("invite")),
+                      ),
+                      SizedBox(
+                        width: 12,
+                      ),
+                      Container(
+                        height: 35,
+                        width: 35,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: unselectedBottomBar,
+                        ),
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.call,
+                              size: 15,
+                            )),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            );
+          },
+        ),
+      );
+  }
+
+  SizedBox contactTabView() {
+    return SizedBox(
+            height: 15,
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: selectItem.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) => Obx(
+                () => GestureDetector(
+                  onTap: () {
+                    selectedIndex.value = index;
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      selectItem[index],
+                      style: index == selectedIndex.value
+                          ? selectedItem
+                          : unSelectedItem,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
   }
 }
 
@@ -411,8 +409,7 @@ class inviteToViber extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(
-                        top: 25, bottom: 25, left: 10),
+                    padding: EdgeInsets.only(top: 25, bottom: 25, left: 10),
                     child: Container(
                       width: 220,
                       height: 20,
@@ -425,8 +422,7 @@ class inviteToViber extends StatelessWidget {
                       child: Row(
                         children: [
                           Padding(
-                            padding:
-                                const EdgeInsets.only(bottom: 30),
+                            padding: const EdgeInsets.only(bottom: 30),
                             child: Container(
                               height: 20,
                               width: 20,
@@ -448,8 +444,7 @@ class inviteToViber extends StatelessWidget {
                             height: Get.height / 12,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage(
-                                      Assets.images.avatar.path)),
+                                  image: AssetImage(Assets.images.avatar.path)),
                             ),
                           ),
                           const SizedBox(
@@ -470,15 +465,13 @@ class inviteToViber extends StatelessWidget {
                             decoration: BoxDecoration(
                                 color: colorActionAppbar,
                                 shape: BoxShape.rectangle,
-                                borderRadius:
-                                    BorderRadius.circular(10)),
+                                borderRadius: BorderRadius.circular(10)),
                             child: Center(
                                 child: Text(
                               "Invite",
                               style: TextStyle(
                                   fontSize: 10,
-                                  color:
-                                      lightScafoldBackgroundColor),
+                                  color: lightScafoldBackgroundColor),
                             )),
                           ),
                         ],
