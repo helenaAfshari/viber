@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:viber_getx/binding.dart';
-import 'package:viber_getx/view/call_bottom_screen.dart';
+import 'package:viber_getx/model/calls_bottom_model/recents_calls_model.dart';
+import 'package:viber_getx/view/calls_button_view/call_bottom_screen.dart';
 import 'package:viber_getx/component/theme_viber.dart';
 import 'package:viber_getx/model/user_inbox_list_model.dart';
 import 'package:viber_getx/view/chat_button_screen.dart';
@@ -19,6 +20,7 @@ void main() async{
   await Hive.initFlutter();
   Hive.registerAdapter(UserContactListModelAdapter());
   Hive.registerAdapter(UserInboxListModelAdapter());
+  Hive.registerAdapter(RecentsCallsModelAdapter());
   runApp( MyApp());
 }
 

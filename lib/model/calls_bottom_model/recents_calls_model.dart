@@ -1,10 +1,10 @@
 
 
 import 'package:hive/hive.dart';
-part 'call_buttom_model.g.dart';
+part 'recents_calls_model.g.dart';
 
  @HiveType(typeId:2)
-class CallButtomModel extends HiveObject{
+class RecentsCallsModel extends HiveObject{
 
    @HiveField(0)
    String name;
@@ -15,10 +15,14 @@ class CallButtomModel extends HiveObject{
    @HiveField(2)
    String imageProfile;
 
-   CallButtomModel({
+   @HiveField(3)
+    String call;
+
+   RecentsCallsModel({
      required this.name,
      required this.phone,
      required this.imageProfile,
+     required this.call
    }
    
    );

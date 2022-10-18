@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:viber_getx/view/call_bottom_screen.dart';
+import 'package:viber_getx/view/calls_button_view/call_bottom_screen.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/controller/bottom_bar_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';

@@ -30,7 +30,7 @@ class UserContactController extends GetxController{
            box.add(user);
            
        
-          
+          contactList.clear();
           //read user from box
           box.values.forEach((element) {
               UserContactListModel userContactListModel = element;
