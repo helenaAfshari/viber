@@ -421,7 +421,7 @@ class inviteToViber extends StatelessWidget {
               Obx(
                 () =>  ListView.builder(
                   shrinkWrap: true,
-                   itemCount: inviteController.contactList.getRange(0,3).length,
+                   itemCount: inviteController.contactList.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
@@ -448,9 +448,12 @@ class inviteToViber extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     color: unselectedBottomBar),
-                                child: const Icon(
-                                  CupertinoIcons.multiply,
-                                  size: 15,
+                                child:  GestureDetector(
+                                  
+                                  child: Icon(
+                                    CupertinoIcons.multiply,
+                                    size: 15,
+                                  ),
                                 ),
                               ),
                             ),
