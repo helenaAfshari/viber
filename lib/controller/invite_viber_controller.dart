@@ -18,10 +18,10 @@ class InviteViberController extends GetxController{
           @override
            void onInit()async{
             super.onInit();
-           await readContact();
+           await readInvite();
            }
        
-       readContact()async{
+       readInvite()async{
           var box =await Hive.openBox(HiveFieldConstants.userContactListBox);
           box.values.forEach((element) {
           UserContactListModel userContactListModel = element;

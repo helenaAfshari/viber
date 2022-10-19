@@ -5,8 +5,10 @@ import 'package:get/get.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/myString.dart';
+import 'package:viber_getx/controller/contacts_controller.dart';
 import 'package:viber_getx/controller/invite_viber_controller.dart';
 import 'package:viber_getx/controller/make_phone_calls_controller.dart';
+import 'package:viber_getx/controller/user_contact_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
 
@@ -291,11 +293,13 @@ class contactList extends StatelessWidget {
     );
   }
 
-  Container allContacts() {
+  Widget allContacts() {
+    ContactsController contactsController = Get.put(ContactsController());
     return Container(
         height: Get.height,
         color: Color.fromARGB(255, 250, 250, 249),
         child: ListView.builder(
+          itemCount: contactsController.contactList.length ,
           itemBuilder: (context, index) {
             return Column(
               children: [
@@ -317,7 +321,12 @@ class contactList extends StatelessWidget {
                       const SizedBox(
                         width: 7,
                       ),
-                      const Text("name"),
+                      //not OverFlow Text
+                      Expanded(
+                           child: Text(contactsController.contactList[index].name,
+                            maxLines: 1,
+                            softWrap: false,
+                            overflow: TextOverflow.visible,)),
                       const SizedBox(
                         width: 156,
                       ),
@@ -412,18 +421,17 @@ class inviteToViber extends StatelessWidget {
               Obx(
                 () =>  ListView.builder(
                   shrinkWrap: true,
-                   itemCount: inviteController.contactList.length,
-                 
+                   itemCount: inviteController.contactList.getRange(0,3).length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: EdgeInsets.only(top: 25, bottom: 25, left: 10),
+                      padding: const EdgeInsets.only(top: 25, bottom: 25, left: 10),
                       //color background Row ListView invite to viber
                       child: Container(
-                        width: 260,
+                        width: 250,
                         height: 20,
                         decoration: BoxDecoration(
-                          borderRadius:  BorderRadius.horizontal(
+                          borderRadius:  const BorderRadius.horizontal(
                               left: Radius.circular(9),
                               right: Radius.circular(9)),
                           color: colorBackgroundBottomBar,
@@ -435,7 +443,7 @@ class inviteToViber extends StatelessWidget {
                             Padding(
                               padding:  EdgeInsets.only(bottom: 30),
                               child: Container(
-                                height: 20,
+                                height: 30,
                                 width: 20,
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
@@ -461,29 +469,29 @@ class inviteToViber extends StatelessWidget {
                               width: 10,
                             ),
                             //not overFlow Text
-                             const Expanded(
-                              child: Text("Amir Hosein",
+                              Expanded(
+                              child: Text(inviteController.contactList[index].name,
                             maxLines: 1,
                             softWrap: false,
                             overflow: TextOverflow.visible,)),
                               
-                             const SizedBox(
-                              width: 66,
-                            ),
-                            Container(
-                              width: 60,
-                              height: 20,
-                              decoration: BoxDecoration(
-                                  color: colorActionAppbar,
-                                  shape: BoxShape.rectangle,
-                                  borderRadius: BorderRadius.circular(10)),
-                              child: Center(
-                                  child: Text(
-                                "Invite",
-                                style: TextStyle(
-                                    fontSize: 10,
-                                    color: lightScafoldBackgroundColor),
-                              )),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Container(
+                                width: 60,
+                                height: 20,
+                                decoration: BoxDecoration(
+                                    color: colorActionAppbar,
+                                    shape: BoxShape.rectangle,
+                                    borderRadius: BorderRadius.circular(10)),
+                                child: Center(
+                                    child: Text(
+                                  "Invite",
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      color: lightScafoldBackgroundColor),
+                                )),
+                              ),
                             ),
                           ],
                         ),
