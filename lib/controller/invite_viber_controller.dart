@@ -26,7 +26,7 @@ class InviteViberController extends GetxController{
           var box =await Hive.openBox(HiveFieldConstants.userContactListBox);
           box.values.forEach((element) {
           UserContactListModel userContactListModel = element;
-          //add userContactList
+        
             contactList.add(userContactListModel);   
          
           });
