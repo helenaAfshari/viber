@@ -7,7 +7,6 @@ import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/myString.dart';
 import 'package:viber_getx/controller/invite_viber_controller.dart';
 import 'package:viber_getx/controller/make_phone_calls_controller.dart';
-import 'package:viber_getx/controller/user_contact_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
 
@@ -85,10 +84,12 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                           ),
                           Column(
                             children: [
-                              Text(
-                                MyString.viberOutText,
-                                style: myNoteTextStyle,
-                              ),
+                                //Text not OverFlow
+                               Expanded(
+                                child: Text(MyString.viberOutText,
+                              style: myNoteTextStyle,
+                            softWrap: false,
+                            overflow: TextOverflow.visible,)),
                               Text(
                                 MyString.messageViberOutText,
                                 maxLines: 2,
@@ -411,17 +412,18 @@ class inviteToViber extends StatelessWidget {
               Obx(
                 () =>  ListView.builder(
                   shrinkWrap: true,
-                  itemCount: inviteController.contactList.getRange(0,5).length,
+                   itemCount: inviteController.contactList.length,
+                 
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: EdgeInsets.only(top: 25, bottom: 25, left: 10),
                       //color background Row ListView invite to viber
                       child: Container(
-                        width: 220,
+                        width: 260,
                         height: 20,
                         decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.horizontal(
+                          borderRadius:  BorderRadius.horizontal(
                               left: Radius.circular(9),
                               right: Radius.circular(9)),
                           color: colorBackgroundBottomBar,
@@ -431,7 +433,7 @@ class inviteToViber extends StatelessWidget {
                          Row(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 30),
+                              padding:  EdgeInsets.only(bottom: 30),
                               child: Container(
                                 height: 20,
                                 width: 20,
@@ -455,18 +457,18 @@ class inviteToViber extends StatelessWidget {
                                     image: AssetImage(Assets.images.avatar.path)),
                               ),
                             ),
-                            const SizedBox(
-                              width: 4,
+                             const SizedBox(
+                              width: 10,
                             ),
-                             Text(
-                              inviteController.contactList[index].name,
-
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 50,
+                            //not overFlow Text
+                             const Expanded(
+                              child: Text("Amir Hosein",
+                            maxLines: 1,
+                            softWrap: false,
+                            overflow: TextOverflow.visible,)),
+                              
+                             const SizedBox(
+                              width: 66,
                             ),
                             Container(
                               width: 60,

@@ -3,7 +3,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:hive/hive.dart';
 import 'package:viber_getx/constants/hive_keys.dart';
 import 'package:viber_getx/model/user_contact_list_model.dart';
@@ -26,8 +25,8 @@ class InviteViberController extends GetxController{
           var box =await Hive.openBox(HiveFieldConstants.userContactListBox);
           box.values.forEach((element) {
           UserContactListModel userContactListModel = element;
-        
-            contactList.add(userContactListModel);   
+            contactList.add(userContactListModel);  
+            print(userContactListModel) ;
          
           });
 
