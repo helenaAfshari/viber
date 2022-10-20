@@ -19,7 +19,7 @@ class BindingInboxController implements Bindings{
   void dependencies() {
       Get.lazyPut(() => UserInboxListController());
   }
-
+    
 
 }
 

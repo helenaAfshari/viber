@@ -11,6 +11,7 @@ import 'package:viber_getx/controller/make_phone_calls_controller.dart';
 import 'package:viber_getx/controller/user_contact_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
+import 'package:viber_getx/view/calls_button_view/calls_in_viewall_screen.dart';
 
 
 class CalsBottomScreen extends StatefulWidget {
@@ -132,13 +133,12 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                         "RECENT CALLS",
                         style: recentCallStyle,
                       ),
-                      SizedBox(
-                        width: Get.width / 1.7,
-                      ),
-                      Text(
-                        "VIEW ALL",
-                        style: viewAllStyle,
-                      )
+                      const SizedBox(width: 205,),
+                      TextButton(
+                        onPressed: () {
+                       Get.to(CallsInViewAllRecentCalls());
+                      }, child:  Text("View All",
+                      style: TextStyle(color: colorActionAppbar),))
                     ],
                   ),
 
@@ -299,6 +299,9 @@ class contactList extends StatelessWidget {
         height: Get.height,
         color: Color.fromARGB(255, 250, 250, 249),
         child: ListView.builder(
+          
+          physics: ClampingScrollPhysics(),
+          
           itemCount: contactsController.contactList.length ,
           itemBuilder: (context, index) {
             return Column(

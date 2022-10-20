@@ -39,15 +39,17 @@ class MyApp extends StatelessWidget {
       theme: isdark?darkMode():lightMode(),
        getPages: [
         GetPage(name: '/MainScreen', page: (() => MainScreen())),
+        // GetPage(name: '/CallsInViewAllRecentCalls', page: () => CallsInViewAllRecentCalls(),),
         GetPage(name: '/ContactListScreen', page: () => ContactListScreen(),binding: BindingContactController()),
        ],      
-      home:CallsInViewAllRecentCalls()
+      home:MainScreen()
          
       
     );
   }
 }
 String routeMainScreen = '/MainScreen';
+
 
 
 

@@ -14,7 +14,15 @@ class CallsInViewAllRecentCalls extends StatelessWidget{
       child: Scaffold(   
       appBar: AppBar(
         backgroundColor: badg,
-        leading: Icon(CupertinoIcons.back,color: colorActionAppbar,),
+        leading:
+           
+           IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon:Icon(CupertinoIcons.back),color: colorActionAppbar, 
+            ),
+        
         title: Text("Calls",style: TextStyle(color: colorIconViber),),
         actions: [
           Icon(CupertinoIcons.search,color: colorActionAppbar,),
