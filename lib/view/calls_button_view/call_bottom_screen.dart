@@ -301,7 +301,7 @@ class contactList extends StatelessWidget {
         child: ListView.builder(
           
           physics: ClampingScrollPhysics(),
-          
+
           itemCount: contactsController.contactList.length ,
           itemBuilder: (context, index) {
             return Column(
@@ -452,8 +452,10 @@ class inviteToViber extends StatelessWidget {
                                     shape: BoxShape.circle,
                                     color: unselectedBottomBar),
                                 child:  GestureDetector(
-                                  
-                                  child: Icon(
+                                  onTap: () {
+                                    inviteController.contactList.removeAt(index);
+                                  },
+                                  child:  const Icon(
                                     CupertinoIcons.multiply,
                                     size: 15,
                                   ),
