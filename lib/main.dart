@@ -14,6 +14,7 @@ import 'package:viber_getx/view/contact_list_screen.dart';
 import 'package:viber_getx/view/main_screen.dart';
 
 import 'model/user_contact_list_model.dart';
+import 'view/calls_button_view/calls_in_viewall_screen.dart';
 
 
 void main() async{
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/MainScreen', page: (() => MainScreen())),
         GetPage(name: '/ContactListScreen', page: () => ContactListScreen(),binding: BindingContactController()),
        ],      
-      home:MainScreen()
+      home:CallsInViewAllRecentCalls()
          
       
     );
