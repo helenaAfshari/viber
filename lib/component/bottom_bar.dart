@@ -34,9 +34,9 @@ class _BottomBarState extends State<BottomBar> {
             showUnselectedLabels: true,    
             onTap: bottomBarController.onTapTaped,     
             currentIndex: bottomBarController.tabIndex.value,   
-            backgroundColor: colorBackgroundBottomBar,
-            unselectedItemColor: unselectedBottomBar,
-            selectedItemColor: backgroundColorFloatingAction,
+            backgroundColor:haSolidColors. colorBackgroundBottomBar,
+            unselectedItemColor:haSolidColors. unselectedBottomBar,
+            selectedItemColor: haSolidColors.backgroundColorFloatingAction,
             unselectedLabelStyle: unselectedLabelStyle,
             selectedLabelStyle: selectedLabelStyle,
             items: const[

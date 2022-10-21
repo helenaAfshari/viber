@@ -29,7 +29,7 @@ static Color colorUnSelectItem =Color.fromARGB(255, 104, 35, 194);
 
 
 
-
+//Allbackground colors in projects
 static Color colorBackgroundAppBarViewAll = Color.fromARGB(255, 235, 228, 228);
 static Color backgroundColorInvite = Color.fromARGB(255, 104, 5, 190);
 static Color backgroundColorLightModeTheme = Color.fromARGB(255, 221, 233, 235);
