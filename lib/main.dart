@@ -81,26 +81,19 @@ String routeMainScreen = '/MainScreen';
 
 
 
-// import 'package:flutter/material.dart';
+
 // // import 'package:flutter/cupertino.dart'; Unused Dependency
 // import 'package:url_launcher/url_launcher.dart';
  
 // // app build process is triggered here
 // void main() => runApp(const MyApp());
  
-// _sendingMails() async {
-//   var url = Uri.parse("mailto:feedback@geeksforgeeks.org");
-//   if (await canLaunchUrl(url)) {
-//     await launchUrl(url);
-//   } else {
-//     throw 'Could not launch $url';
-//   }
-// }
  
 // _sendingSMS() async {
-//   var url = Uri.parse("sms:09123035815");
+//   var url = Uri.parse('sms:09123035815?body=invite');
 //   if (await canLaunchUrl(url)) {
 //     await launchUrl(url);
+     
 //   } else {
 //     throw 'Could not launch $url';
 //   }
@@ -142,28 +135,9 @@ String routeMainScreen = '/MainScreen';
 //                     //fontWeight: FontWeight.bold,
 //                   ),
 //                 ),
-//                 Container(
-//                   height: 10.0,
-//                 ),
-//                 ElevatedButton(
-//                   onPressed: _sendingMails,
-//                   style: ButtonStyle(
-//                     padding:
-//                         MaterialStateProperty.all(const EdgeInsets.all(5.0)),
-//                     textStyle: MaterialStateProperty.all(
-//                       const TextStyle(color: Colors.black),
-//                     ),
-//                   ),
-//                   child: const Text('Here'),
-//                 ), // ElevatedButton
+               
+//               // ElevatedButton
  
-//                 // DEPRECATED
-//                 // RaisedButton(
-//                 //   onPressed: _sendingMails,
-//                 //   child: Text('Here'),
-//                 //   textColor: Colors.black,
-//                 //   padding: const EdgeInsets.all(5.0),
-//                 // ),
 //                 Container(
 //                   height: 20.0,
 //                 ),
@@ -176,27 +150,15 @@ String routeMainScreen = '/MainScreen';
 //                   ),
 //                 ),
 //                 Container(
-//                   height: 10.0,
+//                   height: 50,
 //                 ),
 //                 ElevatedButton(
 //                   onPressed: _sendingSMS,
-//                   style: ButtonStyle(
-//                     padding:
-//                         MaterialStateProperty.all(const EdgeInsets.all(5.0)),
-//                     textStyle: MaterialStateProperty.all(
-//                       const TextStyle(color: Colors.black),
-//                     ),
-//                   ),
-//                   child: const Text('Here'),
+                 
+//                   child:  Text('Here'),
 //                 ), // ElevatedButton
  
-//                 // DEPRECATED
-//                 // RaisedButton(
-//                 //   onPressed: _sendingSMS,
-//                 //   textColor: Colors.black,
-//                 //   padding: const EdgeInsets.all(5.0),
-//                 //   child: Text('Here'),
-//                 // ), child: const Text('Here'),
+               
 //               ],
 //             ),
 //           ),

@@ -7,7 +7,7 @@ import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/myString.dart';
 import 'package:viber_getx/controller/contacts_controller.dart';
 import 'package:viber_getx/controller/invite_viber_controller.dart';
-import 'package:viber_getx/controller/make_phone_calls_controller.dart';
+import 'package:viber_getx/controller/url_in_project.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
 import 'package:viber_getx/view/calls_buttom_view/calls_in_viewall_screen.dart';
@@ -26,6 +26,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
   RxInt selectedIndex = 0.obs;
   UserInboxListController userInboxListController =
       Get.put(UserInboxListController());
+      UrlProject urlProject = Get.put(UrlProject());
 
   @override
   Widget build(BuildContext context) {
@@ -166,7 +167,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            makingPhoneCalls();
+            urlProject.makingPhoneCalls();
           },
           backgroundColor: colorFloatingAction,
           child: const Icon(Icons.contact_phone_rounded),
@@ -472,6 +473,7 @@ class contactList extends StatelessWidget {
 
 class inviteToViber extends StatelessWidget {
   InviteViberController inviteController = Get.put(InviteViberController());
+  UrlProject urlProject = Get.put(UrlProject());
   
    inviteToViber({
     Key? key,
@@ -552,25 +554,28 @@ class inviteToViber extends StatelessWidget {
                             maxLines: 1,
                             softWrap: false,
                             overflow: TextOverflow.visible,)),
-                              
+                             
                             Padding(
                               padding: const EdgeInsets.all(8.0),
-                              child: Container(
-                                width: 60,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                    color: colorActionAppbar,
-                                    shape: BoxShape.rectangle,
-                                    borderRadius: BorderRadius.circular(10)),
-                                child: Center(
-                                    child: Text(
-                                  "Invite",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      color: lightScafoldBackgroundColor),
-                                )),
+                              child: SizedBox(
+                                 height: 22,
+                                 width: 70,
+                                 
+                                 child: ElevatedButton(
+                                  onPressed: () {
+                                    urlProject.makingSendSms();
+                                   
+                                 }, child:  Center(
+                                  child: Text("invite")
+                                 
+                                 ),
+                                 style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))
+                                 ),
+                                 ),
                               ),
                             ),
+                            
                           ],
                         ),
                       ),
