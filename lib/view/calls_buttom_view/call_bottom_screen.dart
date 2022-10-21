@@ -46,15 +46,15 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                         padding: const EdgeInsets.only(left: 199),
                         child: Icon(
                           Icons.contact_page_sharp,
-                          color: colorActionAppbar,
+                          color: haSolidColors.colorIconcontact,
                         ),
                       ),
                       Icon(
                         Icons.search_outlined,
-                        color: colorActionAppbar,
+                        color: haSolidColors.colorIconSearch,
                       ),
                     ]),
-                backgroundColor: colorBackgroundAppBar,
+                backgroundColor: haSolidColors.colorBackgroundAppBarNestedd,
                 pinned: true,
                 floating: true,
                 expandedHeight: 100,
@@ -64,7 +64,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                       height: 45,
                       width: Get.width,
                       decoration: BoxDecoration(
-                        color: colorBackgroundAppBarNested,
+                        color: haSolidColors.colorBackgroundViberOut,
                         borderRadius: const BorderRadius.all(Radius.circular(8)),
                       ),
                       child: Row(
@@ -75,7 +75,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                             width: 45,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: colorAppBarNested,
+                              color:haSolidColors.colorIconCallsNested,
                             ),
                             child: const Center(
                               child: Icon(Icons.call),
@@ -107,7 +107,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                             width: 65,
                             height: 23,
                             decoration: BoxDecoration(
-                              color: colorBuCredit,
+                              color:haSolidColors.colorBuyCredit,
                               shape: BoxShape.rectangle,
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -138,7 +138,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                         onPressed: () {
                        Get.to(CallsInViewAllRecentCalls());
                       }, child:  Text("View All",
-                      style: TextStyle(color: colorActionAppbar),))
+                      style: TextStyle(color: haSolidColors.textColorViewAll),))
                     ],
                   ),
 
@@ -169,7 +169,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
           onPressed: () {
             urlProject.makingPhoneCalls();
           },
-          backgroundColor: colorFloatingAction,
+          backgroundColor: haSolidColors.backgroundColorFloatingAction,
           child: const Icon(Icons.contact_phone_rounded),
         ),
       ),
@@ -324,7 +324,7 @@ class contactList extends StatelessWidget {
                         decoration: 
                            BoxDecoration(
                             shape: BoxShape.circle,
-                            color: unselectedBottomBar,
+                            color: haSolidColors.backgroundColorVideoCall,
                           ),
                           child: Icon(Icons.video_call_outlined,size: 20,),
                       ),
@@ -336,7 +336,7 @@ class contactList extends StatelessWidget {
                         width: 35,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: unselectedBottomBar,
+                          color: haSolidColors.backgroundColorCall,
                         ),
                         child: IconButton(
                             onPressed: () {
@@ -409,10 +409,10 @@ class contactList extends StatelessWidget {
                         height: 30,
                         decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
-                          color: unselectedBottomBar,
+                          color: haSolidColors.backgroundColorInviteContact,
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        child: const Center(child: Text("invite")),
+                        child:  Center(child: Text("invite",)),
                       ),
                       const SizedBox(
                         width: 12,
@@ -422,7 +422,7 @@ class contactList extends StatelessWidget {
                         width: 35,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: unselectedBottomBar,
+                          color: haSolidColors.backgroundColorCallsContact,
                         ),
                         child: IconButton(
                             onPressed: () {
@@ -487,7 +487,7 @@ class inviteToViber extends StatelessWidget {
         Container(
           width: 400,
           height: 100,
-          color: badg,
+          color: haSolidColors.badg,
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
@@ -509,7 +509,7 @@ class inviteToViber extends StatelessWidget {
                           borderRadius:  const BorderRadius.horizontal(
                               left: Radius.circular(9),
                               right: Radius.circular(9)),
-                          color: colorBackgroundBottomBar,
+                          color: haSolidColors.backgroundColoreInvite,
                         ),
                         //Row in ListView invite to viber
                         child:
@@ -522,7 +522,7 @@ class inviteToViber extends StatelessWidget {
                                 width: 20,
                                 decoration: BoxDecoration(
                                     shape: BoxShape.circle,
-                                    color: unselectedBottomBar),
+                                    color: haSolidColors.backgroundColormultiply),
                                 child:  GestureDetector(
                                   onTap: () {
                                     inviteController.contactList.removeAt(index);
@@ -566,11 +566,12 @@ class inviteToViber extends StatelessWidget {
                                     urlProject.makingSendSms();
                                    
                                  }, child:  Center(
-                                  child: Text("invite")
+                                  child: Text("invite",style: inviteTextStyle,)
                                  
                                  ),
                                  style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50))
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+                                  backgroundColor: haSolidColors.backgroundColorInvite,
                                  ),
                                  ),
                               ),

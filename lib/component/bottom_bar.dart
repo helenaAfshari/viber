@@ -36,7 +36,7 @@ class _BottomBarState extends State<BottomBar> {
             currentIndex: bottomBarController.tabIndex.value,   
             backgroundColor: colorBackgroundBottomBar,
             unselectedItemColor: unselectedBottomBar,
-            selectedItemColor: colorFloatingAction,
+            selectedItemColor: backgroundColorFloatingAction,
             unselectedLabelStyle: unselectedLabelStyle,
             selectedLabelStyle: selectedLabelStyle,
             items: const[

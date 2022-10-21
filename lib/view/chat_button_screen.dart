@@ -39,15 +39,15 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                         padding: const EdgeInsets.only(left: 199),
                         child: Icon(
                           Icons.camera_alt_outlined,
-                          color: colorActionAppbar,
+                          color: haSolidColors.colorIconCamera,
                         ),
                       ),
                       Icon(
                         Icons.search_outlined,
-                        color: colorActionAppbar,
+                        color: haSolidColors.colorIconSearch,
                       ),
                     ]),
-                backgroundColor: colorBackgroundAppBar,
+                backgroundColor: haSolidColors.colorBackgroundAppBarNestedd,
                 pinned: false,
                 floating: true,
                 expandedHeight: 100,
@@ -56,7 +56,7 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                     height: 45,
                     width: Get.width,
                     decoration: BoxDecoration(
-                      color: colorBackgroundAppBarNested,
+                      color: haSolidColors.colorBackgroundAppBarMyNote,
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                     ),
                     child: Row(
@@ -67,7 +67,7 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                             width: 45,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: colorActionAppbar,
+                              color: haSolidColors.backgroundColorCircularShape,
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(top: 10,left: 5),
@@ -217,7 +217,7 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
           onPressed: () {
             Get.toNamed('/ContactListScreen');
           },
-          backgroundColor: colorFloatingAction,
+          backgroundColor: haSolidColors.backgroundColorFloatingAction,
           child: Icon(Icons.message_outlined),
 
         ),

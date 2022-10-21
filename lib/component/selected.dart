@@ -29,7 +29,7 @@ import 'package:viber_getx/view/main_screen.dart';
             currentIndex: bottomBarController.tabIndex.value,   
             backgroundColor: colorBackgroundBottomBar,
             unselectedItemColor: unselectedBottomBar,
-            selectedItemColor: colorFloatingAction,
+            selectedItemColor: backgroundColorFloatingAction,
             unselectedLabelStyle: unselectedLabelStyle,
             selectedLabelStyle: selectedLabelStyle,
             items: const[

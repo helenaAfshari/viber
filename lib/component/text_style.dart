@@ -99,5 +99,21 @@ TextStyle contactTextStyle = GoogleFonts.redHatText(
     color: colorIconViber,
 );
 
+TextStyle inviteTextStyle = GoogleFonts.redHatText(
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+    color: colorBackgroundAppBarNestedd,
+);
+
+TextStyle callsTextStyle = GoogleFonts.redHatText(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    fontStyle: FontStyle.normal,
+    color: colorIconCalls,
+);
+
+
+
 
 

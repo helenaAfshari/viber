@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../component/text_style.dart';
 import '../../constants/color_viber.dart';
 import '../../gen/assets.gen.dart';
 
@@ -13,19 +14,19 @@ class CallsInViewAllRecentCalls extends StatelessWidget{
       
       child: Scaffold(   
       appBar: AppBar(
-        backgroundColor: badg,
+        backgroundColor:haSolidColors. colorBackgroundAppBarViewAll,
         leading:
            
            IconButton(
             onPressed: () {
               Get.back();
             },
-            icon:Icon(CupertinoIcons.back),color: colorActionAppbar, 
+            icon:Icon(CupertinoIcons.back),color: haSolidColors.colorIconBack, 
             ),
         
-        title: Text("Calls",style: TextStyle(color: colorIconViber),),
+        title: Text("Calls",style: callsTextStyle,),
         actions: [
-          Icon(CupertinoIcons.search,color: colorActionAppbar,),
+          Icon(CupertinoIcons.search,color: haSolidColors.colorIconSearch,),
         ],
         ),
 
