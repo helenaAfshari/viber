@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:viber_getx/view/calls_button_view/call_bottom_screen.dart';
+import 'package:viber_getx/view/calls_buttom_view/call_bottom_screen.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/controller/bottom_bar_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
@@ -21,12 +21,12 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
    UserInboxListController userInboxListController = Get.put(UserInboxListController());
 
  BottomBarController bottomBarController = Get.put(BottomBarController());
-      TextStyle unselectedLabelStyle = TextStyle(
+      TextStyle unselectedLabelStyle = const TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: 10);
 
   final TextStyle selectedLabelStyle =
-      TextStyle( fontWeight: FontWeight.w500, fontSize: 10);
+      const TextStyle( fontWeight: FontWeight.w500, fontSize: 10);
 
      @override
      void initState(){

@@ -8,10 +8,9 @@ import 'package:viber_getx/constants/myString.dart';
 import 'package:viber_getx/controller/contacts_controller.dart';
 import 'package:viber_getx/controller/invite_viber_controller.dart';
 import 'package:viber_getx/controller/make_phone_calls_controller.dart';
-import 'package:viber_getx/controller/user_contact_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
-import 'package:viber_getx/view/calls_button_view/calls_in_viewall_screen.dart';
+import 'package:viber_getx/view/calls_buttom_view/calls_in_viewall_screen.dart';
 
 
 class CalsBottomScreen extends StatefulWidget {
