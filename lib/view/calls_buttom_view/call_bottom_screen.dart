@@ -279,10 +279,81 @@ class contactList extends StatelessWidget {
                 index: selectedIndex.value,
                 children: [
                  allContacts(),
-                  Container(
-                    color: Colors.blue,
-                  height: 50,
-                  width: 20,),
+                   Container(
+        height: Get.height,
+        color: Color.fromARGB(255, 250, 250, 249),
+        child: ListView.builder(
+          
+          physics: ClampingScrollPhysics(),
+
+          itemCount: 2 ,
+          itemBuilder: (context, index) {
+            return Column(
+              children: [
+                Padding(
+                  padding:  EdgeInsets.only(top: 15, left: 12),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image:
+                                  Image.asset(Assets.images.avatar.path)
+                                      .image),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 7,
+                      ),
+                      //not OverFlow Text
+                      const Expanded(
+                           child: Text("hhh",
+                            maxLines: 1,
+                            softWrap: false,
+                            overflow: TextOverflow.visible,)),
+                      const SizedBox(
+                        width: 156,
+                      ),
+                      Container(
+                        width: 35,
+                        height: 35,
+                        decoration: 
+                           BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: unselectedBottomBar,
+                          ),
+                          child: Icon(Icons.video_call_outlined,size: 20,),
+                      ),
+                      const SizedBox(
+                        width: 12,
+                      ),
+                      Container(
+                        height: 35,
+                        width: 35,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: unselectedBottomBar,
+                        ),
+                        child: IconButton(
+                            onPressed: () {
+
+                            },
+                            icon: const Icon(
+                              Icons.call,
+                              size: 15,
+                            )),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            );
+          },
+        ),
+      )
                 ],
               )
            
