@@ -31,6 +31,8 @@ class UserInboxListController extends GetxController{
                     // box.add(user);              
             //       }
                   
+
+                  //not same add phone number 
                   bool exists = false;
             for (var element in box.values) {
                if(element.phone == phone ){
