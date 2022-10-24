@@ -21,7 +21,7 @@ class UserContactController extends GetxController{
        
      addContact()async{
                   
-                  //add user to box
+               //add user to box
           var box = await Hive.openBox(HiveFieldConstants.userContactListBox);
           var user =  UserContactListModel(
             name: userTextEditingController.text,

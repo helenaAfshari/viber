@@ -1,22 +1,15 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:viber_getx/view/calls_buttom_view/call_bottom_screen.dart';
-import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/controller/bottom_bar_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/component/bottom_bar.dart';
-import 'package:viber_getx/view/chat_button_screen.dart';
 
 
-class MainScreen extends StatefulWidget {
-   MainScreen({super.key});
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
 
-class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
+
+class MainScreen extends StatelessWidget {
    RxBool selectedBottomIndex = false.obs;
    UserInboxListController userInboxListController = Get.put(UserInboxListController());
 
@@ -28,28 +21,9 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   final TextStyle selectedLabelStyle =
       const TextStyle( fontWeight: FontWeight.w500, fontSize: 10);
 
-     @override
-     void initState(){
-      super.initState();
-      WidgetsBinding.instance.addObserver(this);
-
-     }
-     @override
-     void dispose() {
-         
-    super.dispose();
-    WidgetsBinding.instance.removeObserver(this);
-
-  }
   
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
+  
 
-    super.didChangeAppLifecycleState(state);
-    if(state == AppLifecycleState.resumed){
-      userInboxListController.readInbox();
-    }
-  }
   
      
   @override

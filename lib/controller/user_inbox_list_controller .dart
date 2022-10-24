@@ -1,6 +1,6 @@
 
 
-import 'package:flutter/cupertino.dart';
+import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:viber_getx/constants/hive_keys.dart';
@@ -25,53 +25,29 @@ class UserInboxListController extends GetxController{
            name: name,
            phone: phone,
             profileUser: "user profile",);
-              
-
-
-             if(box.values.contains(user)){
-                   
-                    box.add(user);
-                             
-                  }
-                  inboxList.clear();
-                  await readInbox();
-              
-                
+ 
+             //is was not possible to add two identical phone numbers
+            //  if(!box.values.contains(user)){   
+                    // box.add(user);              
+            //       }
                   
-                   
-                  
-                    
-                
-                 
-                   
-                   
-            
-
-               
-                
-    //  box.put('user',user);
-    // return false;
-    
-                
-                
-         
-              //  if(inboxList.contains(user)){
-              //        inboxList.add(user);
-              //        return false;
-              //  }
-              //  box.put('user', user);
-              //  return true;
-
-            
-             
-          
-          //read user from box
-          // box.values.forEach((element) {
-          //     UserInboxListModel user = element;
-          //     inboxList.add(user);
-          //     print(user.name);
-              
-          // });
+                  bool exists = false;
+            for (var element in box.values) {
+               if(element.phone == phone ){
+                  log("phone: $phone exists. please select another user");
+                  exists =true;
+                  break;
+               }
+            }
+            //add user
+            if(!exists){
+             log("phone: $phone Not exists. user aded...");
+              box.add(user);
+            }
+        
+            inboxList.clear();
+            await readInbox();
+ 
 
      }
 

@@ -10,7 +10,8 @@ import 'package:viber_getx/controller/invite_viber_controller.dart';
 import 'package:viber_getx/controller/url_in_project.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
-import 'package:viber_getx/view/calls_buttom_view/calls_in_viewall_screen.dart';
+
+import '../../main.dart';
 
 
 class CalsBottomScreen extends StatefulWidget {
@@ -26,8 +27,8 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
   RxInt selectedIndex = 0.obs;
   UserInboxListController userInboxListController =
       Get.put(UserInboxListController());
-      UrlProject urlProject = Get.put(UrlProject());
-
+     UrlProject urlProject = Get.put(UrlProject());
+       
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -136,7 +137,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                       const SizedBox(width: 205,),
                       TextButton(
                         onPressed: () {
-                       Get.to(CallsInViewAllRecentCalls());
+                       Get.toNamed(RouteCallsInViewAllRecentCalls);
                       }, child:  Text("View All",
                       style: TextStyle(color: haSolidColors.textColorViewAll),))
                     ],

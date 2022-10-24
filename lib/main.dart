@@ -8,7 +8,10 @@ import 'package:viber_getx/component/theme_viber.dart';
 import 'package:viber_getx/model/user_inbox_list_model.dart';
 import 'package:viber_getx/view/contact_list_screen.dart';
 import 'package:viber_getx/view/main_screen.dart';
+import 'controller/bottom_bar_controller.dart';
+import 'controller/url_in_project.dart';
 import 'model/user_contact_list_model.dart';
+import 'view/calls_buttom_view/calls_in_viewall_screen.dart';
 
 
 void main() async{
@@ -26,15 +29,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+
       title: 'Flutter Demo',
       // getPages: [
       //   GetPage(name:routeMainScreen , page: () => MainScreen(),),
       // ],
       theme: isdark?darkMode():lightMode(),
+     
        getPages: [
-        GetPage(name: '/MainScreen', page: (() => MainScreen())),
-        // GetPage(name: '/CallsInViewAllRecentCalls', page: () => CallsInViewAllRecentCalls(),),
-        GetPage(name: '/ContactListScreen', page: () => ContactListScreen(),binding: BindingContactController()),
+        GetPage(name: RouteMainScreen, page: (() => MainScreen())),
+         GetPage(name: RouteCallsInViewAllRecentCalls, page: () => CallsInViewAllRecentCalls(),),
+        GetPage(name: RouteContactListScreen, page: () => ContactListScreen(),binding: BindingContactController()),
        ],      
       home:MainScreen()
          
@@ -42,8 +48,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-String routeMainScreen = '/MainScreen';
-
+String RouteMainScreen = '/MainScreen';
+String RouteCallsInViewAllRecentCalls = '/CallsInViewAllRecentCalls';
+String RouteContactListScreen = '/ContactListScreen';
 
 
 

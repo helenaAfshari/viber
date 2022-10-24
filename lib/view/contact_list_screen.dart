@@ -1,16 +1,10 @@
 
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/component/widgets.dart';
 import 'package:viber_getx/controller/user_contact_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
-import 'package:viber_getx/gen/assets.gen.dart';
-import 'package:viber_getx/view/chat_button_screen.dart';
+
 
 class ContactListScreen extends StatelessWidget {
     ContactListScreen({super.key});

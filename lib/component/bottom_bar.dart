@@ -16,7 +16,8 @@ import 'package:viber_getx/view/main_screen.dart';
 }
 
 class _BottomBarState extends State<BottomBar> {
-  BottomBarController bottomBarController = Get.put(BottomBarController());
+ BottomBarController bottomBarController = Get.put(BottomBarController());
+     
 
       TextStyle unselectedLabelStyle = TextStyle(
       fontWeight: FontWeight.w500,
