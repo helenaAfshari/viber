@@ -1,8 +1,9 @@
 import 'package:flutter/animation.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/container.dart';
+
 
 class haSolidColors {
+
+  
   static Color badg = Color.fromARGB(255, 247, 245, 245);
 
   static Color unselectedBottomBar = Color.fromARGB(255, 189, 180, 180);
@@ -16,8 +17,7 @@ class haSolidColors {
   static Color colorUnSelectItem = Color.fromARGB(255, 104, 35, 194);
 
 //Allbackground colors in projects
-  static Color colorBackgroundAppBarViewAll =
-      Color.fromARGB(255, 235, 228, 228);
+  static Color colorBackgroundAppBarViewAll = Color.fromARGB(255, 235, 228, 228);
   static Color backgroundColorInvite = Color.fromARGB(255, 104, 5, 190);
   static Color backgroundColorLightModeTheme =
       Color.fromARGB(255, 221, 233, 235);

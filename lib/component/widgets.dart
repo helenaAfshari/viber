@@ -43,7 +43,7 @@ Widget userItem(
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name,style: usernameTextStyle,),
+                Text(name,style:haTextStyle.usernameTextStyle,),
                 Text(lastMessage,style: lastMassegeTextStyle,),
               ],
              ),

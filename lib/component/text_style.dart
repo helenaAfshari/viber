@@ -4,13 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../constants/color_viber.dart';
 
-TextStyle usernameTextStyle = GoogleFonts.redHatText(
+class haTextStyle{
+  static TextStyle usernameTextStyle = GoogleFonts.redHatText(
     
     fontSize: 17,
     fontWeight: FontWeight.w500,
     fontStyle: FontStyle.normal,
      color:haSolidColors. colorIconViber,
 );
+}
+
 
 TextStyle lastMassegeTextStyle = GoogleFonts.redHatText(
       fontSize: 15,
