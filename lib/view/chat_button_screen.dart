@@ -34,7 +34,7 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                 title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(MyString.titleViberText, style: nameViberStyle),
+                      Text(MyString.titleViberText, style:haTextStyle. nameViberStyle),
                       Padding(
                         padding: const EdgeInsets.only(left: 199),
                         child: Icon(
@@ -130,11 +130,11 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                           children: [
                             Text(
                               MyString.myNoteText,
-                              style: myNoteTextStyle,
+                              style: haTextStyle.myNoteTextStyle,
                             ),
                             Text(
                               MyString.messageText,
-                              style: massegeViberOutTextStyle,
+                              style: haTextStyle.massegeViberOutTextStyle,
                             )
                           ],
                         ),

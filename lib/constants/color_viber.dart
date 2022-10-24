@@ -36,6 +36,9 @@ class haSolidColors {
   static Color backgroundColorFloatingAction = Color.fromARGB(255, 105, 4, 238);
   static Color lightScafoldBackgroundColor = Color.fromARGB(255, 255, 255, 255);
   static Color darkScafoldBackgroundColor = Color.fromARGB(255, 41, 40, 40);
+  static Color backgroundBottomContact = Color.fromARGB(255, 116, 5, 133);
+
+
 
   static Color textColorViewAll = Color.fromARGB(255, 212, 3, 240);
 
@@ -47,4 +50,6 @@ class haSolidColors {
   static Color colorIconCalls = Color.fromARGB(255, 0, 0, 0);
   static Color colorIconCallsNested = Color.fromARGB(255, 9, 218, 187);
   static Color colorIconViber = Color.fromARGB(255, 0, 0, 0);
+
+
 }

@@ -1,7 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/component/widgets.dart';
+import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/controller/user_contact_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 
@@ -30,17 +32,7 @@ class ContactListScreen extends StatelessWidget {
                   decoration: const InputDecoration(hintText: "phone"),
                   controller: userContactController.phoneTextEditingController ,
                   ),
-                ElevatedButton(
-                  onPressed: () {
-                  userContactController.addContact(); 
-                }, child: const Text("Add Contact")),
-                 ElevatedButton(
-                  onPressed: () {
-
-                     userContactController.editContact(editIndex.value);
-
-
-                }, child: const Text("Update")),
+                
                 SizedBox(
                   child: Obx(
                     (() =>  ListView.builder(
@@ -82,6 +74,30 @@ class ContactListScreen extends StatelessWidget {
                 ),
               ],
              ),
+           ),
+           bottomNavigationBar: Container(
+            color: haSolidColors.backgroundBottomContact,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+              
+              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  TextButton(
+                  onPressed: () {
+                  userContactController.addContact(); 
+                }, child:  Text("Add Contact",style: haTextStyle.lightTextButton,)),
+                SizedBox(width: 100,),
+                 TextButton(
+                  onPressed: () {
+                     userContactController.editContact(editIndex.value);
+                }, child:  Text("Update Contact",style: haTextStyle.lightTextButton,)),
+                ],
+              )
+             
+            ],),
            ),
     ));
   }

@@ -1,12 +1,8 @@
 
  import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:viber_getx/component/text_style.dart';
-import 'package:viber_getx/constants/color_viber.dart';
-import 'package:viber_getx/controller/user_contact_controller.dart';
-import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
+
 
 import '../gen/assets.gen.dart';
 
@@ -44,7 +40,7 @@ Widget userItem(
                 crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(name,style:haTextStyle.usernameTextStyle,),
-                Text(lastMessage,style: lastMassegeTextStyle,),
+                Text(lastMessage,style: haTextStyle.lastMassegeTextStyle,),
               ],
              ),
              
@@ -52,7 +48,7 @@ Widget userItem(
               
              ),
            
-           Text(time,style: dateTextStyle,),
+           Text(time,style: haTextStyle.dateTextStyle,),
           
         ],
       ),

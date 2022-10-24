@@ -42,7 +42,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                 title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(MyString.titleViberText, style: nameViberStyle),
+                      Text(MyString.titleViberText, style: haTextStyle.nameViberStyle),
                       Padding(
                         padding: const EdgeInsets.only(left: 199),
                         child: Icon(
@@ -91,13 +91,13 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                                 //Text not OverFlow
                                Expanded(
                                 child: Text(MyString.viberOutText,
-                              style: myNoteTextStyle,
+                              style: haTextStyle.myNoteTextStyle,
                             softWrap: false,
                             overflow: TextOverflow.visible,)),
                               Text(
                                 MyString.messageViberOutText,
                                 maxLines: 2,
-                                style: massegeViberOutTextStyle,
+                                style: haTextStyle.massegeViberOutTextStyle,
                               )
                             ],
                           ),
@@ -115,7 +115,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                             child: Center(
                                 child: Text(
                               "BuyCredit",
-                              style: massegeViberOutTextStyle,
+                              style:haTextStyle. massegeViberOutTextStyle,
                             )),
                           ),
                         ],
@@ -132,7 +132,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                     children: [
                       Text(
                         "RECENT CALLS",
-                        style: recentCallStyle,
+                        style: haTextStyle.recentCallStyle,
                       ),
                       const SizedBox(width: 205,),
                       TextButton(
@@ -269,7 +269,7 @@ class contactList extends StatelessWidget {
           children: [
             Text(
               "Contact",
-              style: contactTextStyle,
+              style: haTextStyle.contactTextStyle,
             ),
            
            contactTabView(),
@@ -461,8 +461,8 @@ class contactList extends StatelessWidget {
                     child: Text(
                       selectItem[index],
                       style: index == selectedIndex.value
-                          ? selectedItem
-                          : unSelectedItem,
+                          ? haTextStyle.selectedItem
+                          : haTextStyle.unSelectedItem,
                     ),
                   ),
                 ),
@@ -567,7 +567,7 @@ class inviteToViber extends StatelessWidget {
                                     urlProject.makingSendSms();
                                    
                                  }, child:  Center(
-                                  child: Text("invite",style: inviteTextStyle,)
+                                  child: Text("invite",style: haTextStyle.inviteTextStyle,)
                                  
                                  ),
                                  style: ElevatedButton.styleFrom(

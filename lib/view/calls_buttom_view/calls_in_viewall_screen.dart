@@ -24,7 +24,7 @@ class CallsInViewAllRecentCalls extends StatelessWidget{
             icon:Icon(CupertinoIcons.back),color: haSolidColors.colorIconBack, 
             ),
         
-        title: Text("Calls",style: callsTextStyle,),
+        title: Text("Calls",style:haTextStyle. callsTextStyle,),
         actions: [
           Icon(CupertinoIcons.search,color: haSolidColors.colorIconSearch,),
         ],
