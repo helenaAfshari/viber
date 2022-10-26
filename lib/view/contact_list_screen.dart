@@ -1,5 +1,6 @@
 
-import 'package:flutter/cupertino.dart';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:viber_getx/component/input_decoration.dart';
@@ -17,6 +18,7 @@ class ContactListScreen extends StatelessWidget {
        UserInboxListController userInboxListController = Get.put(UserInboxListController());
 
         RxInt editIndex = 0.obs;
+      
   @override
   Widget build(BuildContext context) {
     
@@ -25,8 +27,12 @@ class ContactListScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: haSolidColors.backgroundBottomContact,
           title: const Text("New Chat"),
-          actions:const [
-            Icon(CupertinoIcons.search),
+          actions: [
+              IconButton(
+                onPressed: () {
+              
+              }, icon: Icon(Icons.search)),
+            
           ],
 
         ),
@@ -34,14 +40,20 @@ class ContactListScreen extends StatelessWidget {
             physics: const BouncingScrollPhysics(),
              child: Column(
               children: [
-                TextFormField(
-                  decoration: haInputDecoration(hintText: "user Name and Last Name").normalForms(),
-                  controller: userContactController.userTextEditingController,
-                  ),
-                TextFormField(
-                  decoration: haInputDecoration(hintText: "phone").normalForms(),
-                  controller: userContactController.phoneTextEditingController ,
-                  ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    decoration: haInputDecoration(hintText: "user Name and Last Name").normalForms(),
+                    controller: userContactController.userTextEditingController,
+                    ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: TextFormField(
+                    decoration: haInputDecoration(hintText: "phone").normalForms(),
+                    controller: userContactController.phoneTextEditingController ,
+                    ),
+                ),
                 
                 SizedBox(
                   child: Obx(

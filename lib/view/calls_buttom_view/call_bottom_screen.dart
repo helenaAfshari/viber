@@ -137,7 +137,7 @@ class _CalsBottomScreenState extends State<CalsBottomScreen> {
                       const SizedBox(width: 205,),
                       TextButton(
                         onPressed: () {
-                       Get.toNamed(RouteCallsInViewAllRecentCalls);
+                       //Get.toNamed(RouteCallsInViewAllRecentCalls);
                       }, child:  Text("View All",
                       style: TextStyle(color: haSolidColors.textColorViewAll),))
                     ],
