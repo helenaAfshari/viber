@@ -7,6 +7,18 @@ ThemeData lightMode(){
   return ThemeData(
     appBarTheme: AppBarTheme(backgroundColor: haSolidColors.backgroundColorLightModeTheme),
     scaffoldBackgroundColor: haSolidColors.lightScafoldBackgroundColor,
+    inputDecorationTheme: InputDecorationTheme(
+      enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(25),
+        borderSide: BorderSide(color: haSolidColors.colorIconBack),
+       ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(25),
+        borderSide: BorderSide(color: haSolidColors.backgroundBottomContact),
+       ),
+        filled: true,
+        fillColor: haSolidColors.lightScafoldBackgroundColor,
+    )
   );
 }
 

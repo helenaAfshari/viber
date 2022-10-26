@@ -1,6 +1,8 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:viber_getx/component/input_decoration.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/component/widgets.dart';
 import 'package:viber_getx/constants/color_viber.dart';
@@ -20,16 +22,24 @@ class ContactListScreen extends StatelessWidget {
     
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: haSolidColors.backgroundBottomContact,
+          title: const Text("New Chat"),
+          actions:const [
+            Icon(CupertinoIcons.search),
+          ],
+
+        ),
            body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
              child: Column(
               children: [
                 TextFormField(
-                  decoration: const InputDecoration(hintText: "userName"),
+                  decoration: haInputDecoration.normalForms,
                   controller: userContactController.userTextEditingController,
                   ),
                 TextFormField(
-                  decoration: const InputDecoration(hintText: "phone"),
+                  decoration: haInputDecoration.normalForms,
                   controller: userContactController.phoneTextEditingController ,
                   ),
                 
@@ -81,7 +91,6 @@ class ContactListScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
               
-              
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -95,7 +104,7 @@ class ContactListScreen extends StatelessWidget {
                      userContactController.editContact(editIndex.value);
                 }, child:  Text("Update Contact",style: haTextStyle.lightTextButton,)),
                 ],
-              )
+              ),
              
             ],),
            ),

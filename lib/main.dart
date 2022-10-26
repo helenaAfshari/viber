@@ -8,8 +8,6 @@ import 'package:viber_getx/component/theme_viber.dart';
 import 'package:viber_getx/model/user_inbox_list_model.dart';
 import 'package:viber_getx/view/contact_list_screen.dart';
 import 'package:viber_getx/view/main_screen.dart';
-import 'controller/bottom_bar_controller.dart';
-import 'controller/url_in_project.dart';
 import 'model/user_contact_list_model.dart';
 import 'view/calls_buttom_view/calls_in_viewall_screen.dart';
 

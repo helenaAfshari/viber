@@ -107,14 +107,14 @@ static TextStyle selectedItem = GoogleFonts.redHatText(
 );
 
  static TextStyle callsTextStyle = GoogleFonts.redHatText(
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: FontWeight.bold,
     fontStyle: FontStyle.normal,
     color: haSolidColors.colorIconCalls,
 );
 
  static TextStyle lightTextButton = GoogleFonts.redHatText(
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: FontWeight.bold,
     fontStyle: FontStyle.normal,
     color:haSolidColors.badg ,
