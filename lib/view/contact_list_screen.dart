@@ -35,11 +35,11 @@ class ContactListScreen extends StatelessWidget {
              child: Column(
               children: [
                 TextFormField(
-                  decoration: haInputDecoration.normalForms,
+                  decoration: haInputDecoration(hintText: "user Name and Last Name").normalForms(),
                   controller: userContactController.userTextEditingController,
                   ),
                 TextFormField(
-                  decoration: haInputDecoration.normalForms,
+                  decoration: haInputDecoration(hintText: "phone").normalForms(),
                   controller: userContactController.phoneTextEditingController ,
                   ),
                 
