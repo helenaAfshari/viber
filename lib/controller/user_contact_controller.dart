@@ -67,6 +67,17 @@ class UserContactController extends GetxController{
          readContact();
           
      }
+
+     searchContact(String searchKey)async{
+        contactList.clear();
+      var box =await Hive.openBox(HiveFieldConstants.userContactListBox);
+      box.values.where((element) =>
+      element.name.contains(searchKey)
+      ).forEach((element) {
+        contactList.add(element);
+      });
+
+     }
       
 }
      
