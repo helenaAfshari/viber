@@ -1,6 +1,5 @@
 
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:viber_getx/component/input_decoration.dart';
@@ -9,6 +8,7 @@ import 'package:viber_getx/component/widgets.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/controller/user_contact_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
+
 
 
 class ContactListScreen extends StatelessWidget {
@@ -26,31 +26,35 @@ class ContactListScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: haSolidColors.backgroundBottomContact,
-          title: const Text("New Chat"),
-          actions: [
-              IconButton(
-                onPressed: () {
-              
-              }, icon: Icon(Icons.search)),
-            
-          ],
-
+           title: Text("New Chat"),
+           actions: const [
+            Icon(Icons.search),
+           ],
         ),
            body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
              child: Column(
               children: [
                 Padding(
+                  padding:  EdgeInsets.all(8.0),
+                  child: TextFormField(
+                      onChanged: (value) => userContactController.searchContact(value),
+                    decoration: haInputDecoration(hintText: "Search",icon: Icons.search).searchForms(),
+                  
+                    ),
+                ),
+                Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    decoration: haInputDecoration(hintText: "user Name and Last Name").normalForms(),
+                  
+                    decoration: haInputDecoration(hintText: "user Name and Last Name",icon:Icons.edit).userNameInputeDecoration(),
                     controller: userContactController.userTextEditingController,
                     ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
-                    decoration: haInputDecoration(hintText: "phone").normalForms(),
+                    decoration: haInputDecoration(hintText: "phone",icon: Icons.phone).phoneInputeDecoration(),
                     controller: userContactController.phoneTextEditingController ,
                     ),
                 ),
@@ -63,8 +67,7 @@ class ContactListScreen extends StatelessWidget {
                       itemCount: userContactController.contactList.length,
                       itemBuilder: (context, index) {
                        return GestureDetector(
-                             
-                              
+                                                
                            onTap: () {
                                  
                                 // Get.to(ChatScreen());

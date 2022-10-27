@@ -76,7 +76,7 @@ class UserContactController extends GetxController{
       ).forEach((element) {
         contactList.add(element);
       });
-
+      await box.close();
      }
       
 }
