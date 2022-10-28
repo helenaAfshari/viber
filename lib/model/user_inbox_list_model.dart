@@ -10,7 +10,7 @@ class UserInboxListModel extends HiveObject{
   @HiveField(0)
   String name;
   @HiveField(1)
-  String phone; 
+  String phone; //peerId
   @HiveField(2)
   String profileUser;
   @HiveField(3)
