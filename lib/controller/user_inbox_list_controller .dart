@@ -24,13 +24,18 @@ class UserInboxListController extends GetxController{
           var user =  UserInboxListModel(
            name: name,
            phone: phone,
-            profileUser: "user profile",);
+            profileUser: "user profile",
+            peerId: "",
+            messageList: [],
+            );
  
              //is was not possible to add two identical phone numbers
             //  if(!box.values.contains(user)){   
                     // box.add(user);              
             //       }
-                  
+
+
+            
 
                   //not same add phone number 
                   bool exists = false;
