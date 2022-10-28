@@ -37,16 +37,23 @@ class haSolidColors {
   static Color lightScafoldBackgroundColor = Color.fromARGB(255, 255, 255, 255);
   static Color darkScafoldBackgroundColor = Color.fromARGB(255, 41, 40, 40);
   static Color backgroundBottomContact = Color.fromARGB(255, 116, 5, 133);
+  static Color colorBackgroundAppBarChatScreen = Color.fromARGB(255, 252, 253, 253);
+
 
 
 
   static Color textColorViewAll = Color.fromARGB(255, 212, 3, 240);
-
+   static Color colorLastSeenChatScreen = Color.fromARGB(255, 55, 53, 55);
+      static Color colorNameInChatScreen = Color.fromARGB(255, 63, 61, 61);
+  
 //All Icon Color in Projects
   static Color colorIconBack = Color.fromARGB(255, 104, 5, 190);
   static Color colorIconSearch = Color.fromARGB(255, 104, 5, 190);
   static Color colorIconCamera = Color.fromARGB(255, 104, 5, 190);
+   static Color colorIconVideoCall = Color.fromARGB(255, 104, 5, 190);
+     static Color colorMenu = Color.fromARGB(255, 104, 5, 190);
   static Color colorIconcontact = Color.fromARGB(255, 104, 5, 190);
+  static Color colorIconPhone = Color.fromARGB(255, 104, 5, 190);
   static Color colorIconCalls = Color.fromARGB(255, 0, 0, 0);
   static Color colorIconCallsNested = Color.fromARGB(255, 9, 218, 187);
   static Color colorIconViber = Color.fromARGB(255, 0, 0, 0);

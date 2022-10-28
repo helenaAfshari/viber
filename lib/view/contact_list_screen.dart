@@ -25,11 +25,10 @@ class ContactListScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+            iconTheme: IconThemeData(color: haSolidColors.badg),
           backgroundColor: haSolidColors.backgroundBottomContact,
            title: Text("New Chat"),
-           actions: const [
-            Icon(Icons.search),
-           ],
+           
         ),
            body: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),

@@ -120,7 +120,19 @@ static TextStyle selectedItem = GoogleFonts.redHatText(
     color:haSolidColors.badg ,
 );
 
+     static TextStyle lastSeenChatScreen = GoogleFonts.redHatText(
+    fontSize: 12,
+    fontWeight: FontWeight.normal,
+    fontStyle: FontStyle.normal,
+    color:haSolidColors.colorLastSeenChatScreen ,
+);
 
+  static TextStyle nameChatScreen = GoogleFonts.redHatText(
+    fontSize: 13,
+    fontWeight: FontWeight.bold,
+    fontStyle: FontStyle.normal,
+    color:haSolidColors.colorNameInChatScreen ,
+);
 
 }
 
