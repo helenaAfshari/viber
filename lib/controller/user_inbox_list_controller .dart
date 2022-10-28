@@ -25,8 +25,7 @@ class UserInboxListController extends GetxController{
            name: name,
            phone: phone,
             profileUser: "user profile",
-            
-            messageList: [],
+         
             );
  
              //is was not possible to add two identical phone numbers

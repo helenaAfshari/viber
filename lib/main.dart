@@ -18,8 +18,7 @@ void main() async{
   Hive
   ..registerAdapter(UserContactListModelAdapter())
   ..registerAdapter(UserInboxListModelAdapter())
-  ..registerAdapter(MessageModelAdapter())
-  ..registerAdapter(RecentsCallsModelAdapter());
+  ..registerAdapter(MessageModelAdapter());
   runApp( MyApp());
 }
 

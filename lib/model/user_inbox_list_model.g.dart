@@ -20,23 +20,20 @@ class UserInboxListModelAdapter extends TypeAdapter<UserInboxListModel> {
       name: fields[0] as String,
       phone: fields[1] as String,
       profileUser: fields[2] as String,
-      messageList: (fields[4] as List).cast<MessageModel>(),
     );
   }
 
   @override
   void write(BinaryWriter writer, UserInboxListModel obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
       ..write(obj.phone)
       ..writeByte(2)
       ..write(obj.profileUser)
-      ..writeByte(3)
-      ..writeByte(4)
-      ..write(obj.messageList);
+      ..writeByte(4);
   }
 
   @override

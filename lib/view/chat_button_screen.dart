@@ -7,6 +7,7 @@ import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/myString.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
+import 'package:viber_getx/view/chat_screen.dart';
 
 class ChatBottomScreen extends StatefulWidget {
   ChatBottomScreen({
@@ -192,11 +193,8 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                             onTap: () {
-                              //  Get.to(ChatScreen());
-
-                              //  userContactController.phoneTextEditingController.text = userContactController.contactList[index].phone;
-                              //  userContactController.userTextEditingController.text = userContactController.contactList[index].name;
-                              //  editIndex = index;
+                          
+                               Get.to(ChatScreen());
                             },
 
                             //TODO image path and hard cod

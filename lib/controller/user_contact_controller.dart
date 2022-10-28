@@ -29,8 +29,8 @@ class UserContactController extends GetxController{
             profileUser: "user profile",);
            box.add(user);
            
-       
-          contactList.clear();
+             contactList.clear();
+
           //read user from box
           box.values.forEach((element) {
               UserContactListModel userContactListModel = element;
