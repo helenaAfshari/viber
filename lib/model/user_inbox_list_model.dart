@@ -13,8 +13,7 @@ class UserInboxListModel extends HiveObject{
   String phone; //peerId
   @HiveField(2)
   String profileUser;
-  @HiveField(3)
-  String peerId;
+ 
   //when new message in save list messages
   @HiveField(4)
   List<MessageModel>messageList = [];
@@ -22,7 +21,6 @@ class UserInboxListModel extends HiveObject{
     required this.name,
     required this.phone,
     required this.profileUser,
-    required this.peerId,
     required this.messageList,
 
   });

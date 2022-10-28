@@ -20,7 +20,6 @@ class UserInboxListModelAdapter extends TypeAdapter<UserInboxListModel> {
       name: fields[0] as String,
       phone: fields[1] as String,
       profileUser: fields[2] as String,
-      peerId: fields[3] as String,
       messageList: (fields[4] as List).cast<MessageModel>(),
     );
   }
@@ -36,7 +35,6 @@ class UserInboxListModelAdapter extends TypeAdapter<UserInboxListModel> {
       ..writeByte(2)
       ..write(obj.profileUser)
       ..writeByte(3)
-      ..write(obj.peerId)
       ..writeByte(4)
       ..write(obj.messageList);
   }

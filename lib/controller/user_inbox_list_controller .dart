@@ -25,7 +25,7 @@ class UserInboxListController extends GetxController{
            name: name,
            phone: phone,
             profileUser: "user profile",
-            peerId: "",
+            
             messageList: [],
             );
  
