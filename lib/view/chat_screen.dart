@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:viber_getx/component/selected.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 
@@ -34,9 +35,17 @@ class ChatScreen extends StatelessWidget {
             const SizedBox(width: 20,),
             Icon(Icons.menu,color: haSolidColors.colorMenu,),
             const SizedBox(width: 5,),
-          
+        
           ],
       ),
+      // bottomNavigationBar:BottomNavigationBar(
+      //   items:const<BottomNavigationBarItem> [
+      //     BottomNavigationBarItem(icon: Icon(Icons.search),
+      //     backgroundColor: Colors.amber
+      //     )
+        
+      // ],)
+      
       ),
     );
   }

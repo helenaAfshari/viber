@@ -19,12 +19,12 @@ import 'package:flutter/material.dart';
 
 
 
-class Home extends StatefulWidget{
+class Camera extends StatefulWidget{
   @override
-  _HomeState createState() => _HomeState();
+  _CameraState createState() => _CameraState();
 }
 
-class _HomeState extends State<Home> {
+class _CameraState extends State<Camera> {
 
   List<CameraDescription>? cameras; //list out the camera available
   CameraController? controller; //controller for camera
