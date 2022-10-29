@@ -77,21 +77,7 @@ class ChatScreen extends StatelessWidget {
          
           ],
          )
-          
-      //      TextFormField(
-      // cursorColor: Colors.black,
-      // decoration: const InputDecoration(
-      //   hintText: "Type a Message.....",
-      //   enabledBorder:
-      //         OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 14, 13, 13))),
-      //   focusedBorder:
-      //         OutlineInputBorder(borderSide: BorderSide(color: Color.fromARGB(255, 32, 29, 29))),
-      // ),
-    
-        
-    
-      //    ), 
-      
+ 
          
       )
       );
