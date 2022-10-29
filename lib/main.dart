@@ -8,6 +8,7 @@ import 'package:viber_getx/component/bottomBar.dart';
 import 'package:viber_getx/component/theme_viber.dart';
 import 'package:viber_getx/model/message_model.dart';
 import 'package:viber_getx/model/user_inbox_list_model.dart';
+import 'package:viber_getx/view/chat_screen.dart';
 import 'package:viber_getx/view/contact_list_screen.dart';
 import 'package:viber_getx/view/main_screen.dart';
 import 'model/user_contact_list_model.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
          GetPage(name: RouteCallsInViewAllRecentCalls, page: () => CallsInViewAllRecentCalls(),),
         GetPage(name: RouteContactListScreen, page: () => ContactListScreen(),binding: BindingContactController()),
        ],      
-      home:BottomBarChatScreen(),
+      home:ChatScreen(),
          
       
     );

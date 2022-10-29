@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:get/get.dart';
 import 'package:viber_getx/component/selected.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
@@ -38,15 +39,29 @@ class ChatScreen extends StatelessWidget {
         
           ],
       ),
-      // bottomNavigationBar:BottomNavigationBar(
-      //   items:const<BottomNavigationBarItem> [
-      //     BottomNavigationBarItem(icon: Icon(Icons.search),
-      //     backgroundColor: Colors.amber
-      //     )
-        
-      // ],)
-      
+         body: 
+           TextFormField(
+     
+      cursorColor: Colors.black,
+      decoration: InputDecoration(
+        hintText: "Type a Message.....",
+        enabledBorder:
+            OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+        focusedBorder:
+            OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
       ),
-    );
+    ),
+        //   Padding(
+        //     padding: const EdgeInsets.only(top: 655),
+        //     child: Container(
+        //        height: 55,
+        //        width: Get.width,
+        //        color: Colors.amber,
+               
+        //  ),
+        //   ),
+         ),
+      
+      );
   }
 }
