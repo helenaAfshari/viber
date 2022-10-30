@@ -1,5 +1,7 @@
 
 
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -61,6 +63,7 @@ class ChatScreen extends StatelessWidget {
               
                ),
               )),
+          
         Padding(
           padding: const EdgeInsets.only(top: 606),
           child: TextFormField(
@@ -73,7 +76,8 @@ class ChatScreen extends StatelessWidget {
                 OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
       )),
         ),
-      myBottomBar(),
+       myBottomBar()
+      
          
           ],
          )
@@ -88,13 +92,13 @@ class myBottomBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
      return Padding(
-       padding: const EdgeInsets.only(top: 667),
+       padding: const EdgeInsets.only(top: 100),
        child: Row(
          children: [
            const SizedBox(width: 5,),
            IconButton(
              onPressed: () {
-             
+             bottomSheetsEmoji();
            }, icon: Icon(Icons.emoji_emotions)),
               
               IconButton(
@@ -125,5 +129,14 @@ class myBottomBar extends StatelessWidget{
      );
   }
 
+
+}
+
+void bottomSheetsEmoji(){
+   Get.bottomSheet(
+    Scaffold(
+     
+    ),
+   );
 
 }
