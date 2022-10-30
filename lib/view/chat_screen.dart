@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:viber_getx/component/selected.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
+import 'package:viber_getx/constants/dimen.dart';
 import 'package:viber_getx/view/calls_buttom_view/call_bottom_screen.dart';
 import 'package:viber_getx/view/camera.dart';
 import 'package:viber_getx/view/chat_button_screen.dart';
@@ -24,6 +25,7 @@ class ChatScreen extends StatelessWidget {
   RxInt indexed = 0.obs;
   @override
   Widget build(BuildContext context) {
+
     return SafeArea(
      child: Scaffold(
       appBar: AppBar(
@@ -51,37 +53,45 @@ class ChatScreen extends StatelessWidget {
           ],
       ),
          body: 
-         Stack(
-          children: [
-            Positioned.fill(
-              child: Obx(
-                () =>  IndexedStack(
-                 index: indexed.value,
-                 children:[
-                    
-                 ]
-              
-               ),
-              )),
-          
-        Padding(
-          padding: const EdgeInsets.only(top: 606),
-          child: TextFormField(
-      cursorColor: Colors.black,
-      decoration: const InputDecoration(
-          hintText: "Type a Message.....",
-          enabledBorder:
-                OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-          focusedBorder:
-                OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
-      )),
-        ),
-       myBottomBar()
-      
+         SingleChildScrollView(
+           child: Stack(
+            children: [
+              Positioned.fill(
+                child: Obx(
+                  () =>  IndexedStack(
+                   index: indexed.value,
+                   children:[
+                      
+                   ]
+                
+                 ),
+                )),
+            
+             const Padding(
+            padding: EdgeInsets.only(top: 551),
+            child: TextField(
+               obscureText: false,
+           
+               cursorColor: Colors.black,
+               decoration: InputDecoration(
+            hintText: "Type a Message.....",
+            isDense: true,
+            enabledBorder:
+             
+                  OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+            focusedBorder:
+                  OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+               )),
+                 ),
+               
+               myBottomBar(),
+           
+            ],
+                 
+           ),
+         ),
          
-          ],
-         )
- 
+
          
       )
       );
@@ -92,7 +102,7 @@ class myBottomBar extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
      return Padding(
-       padding: const EdgeInsets.only(top: 100),
+       padding: const EdgeInsets.only(top: 585),
        child: Row(
          children: [
            const SizedBox(width: 5,),

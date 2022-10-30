@@ -53,7 +53,100 @@ String RouteCallsInViewAllRecentCalls = '/CallsInViewAllRecentCalls';
 String RouteContactListScreen = '/ContactListScreen';
 
 
+// import 'package:flutter/material.dart';
 
+
+// void main() => runApp(MyApp());
+
+// class MyApp extends StatelessWidget {
+//   // This widget is the root of your application.
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: Scaffold(
+//         body: SingleChildScrollView(
+//           child: MyLoginPage(),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// class MyLoginPage extends StatefulWidget {
+  
+
+
+
+//   @override
+//   _MyLoginPageState createState() => _MyLoginPageState();
+// }
+
+// class _MyLoginPageState extends State<MyLoginPage> {
+ 
+//   TextStyle style = TextStyle(fontSize: 25.0);
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final emailField = Padding(
+//       padding: const EdgeInsets.only(top: 310),
+//       child: TextField(
+        
+      
+//         decoration: InputDecoration(
+//             contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+//             prefixIcon: Icon(Icons.search),
+//             hintText: "Email",
+//             focusedBorder: OutlineInputBorder(
+//                 borderSide: BorderSide(color: Colors.red, width: 32.0),
+//                 borderRadius: BorderRadius.circular(97.0))),
+       
+//       ),
+//     );
+//     final passwordField = TextField(
+//       obscureText: true,
+    
+//       decoration: InputDecoration(
+//           contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+//           prefixIcon: Icon(Icons.key),
+//           hintText: "Password",
+//           focusedBorder: OutlineInputBorder(
+//               borderSide: BorderSide(color: Colors.red, width: 32.0),
+//               borderRadius: BorderRadius.circular(25.0))),
+      
+//     );
+
+//     return Center(
+//       child: Column(
+//         children: <Widget>[
+//           Container(
+//             color: Colors.yellow[300],
+//             height: 300.0,
+//           ),
+//           emailField,
+//           passwordField
+//         ],
+//       ),
+//     );
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
 
 
 
