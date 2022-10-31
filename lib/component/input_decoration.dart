@@ -66,4 +66,19 @@ class haInputDecoration{
     );
 
 }
+
+  static InputDecoration typeMessageInChatScreen(String hintText){
+  return InputDecoration(
+      hintText: hintText,
+       focusedBorder: const OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.white),
+       ),
+        enabledBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(25),
+        borderSide: const BorderSide(color: Colors.white),
+       ),
+      
+
+  );
+}
 }
