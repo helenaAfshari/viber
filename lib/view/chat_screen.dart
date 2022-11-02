@@ -1,10 +1,10 @@
 
 
+import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '';
 import 'package:get/get.dart';
 import 'package:viber_getx/component/input_decoration.dart';
 import 'package:viber_getx/component/text_style.dart';
@@ -50,43 +50,64 @@ class ChatScreen extends StatelessWidget {
       ),
          body: 
         
+          // Stack(
+          //   children: [
+          //     Positioned(
+          //       bottom: 0.5,
+          //       child: Column(
+          //       children: [
+          //          Container(
+          //       height: Get.height/7,
+          //       width: Get.width,
+          //       color: Colors.red,
+          //       child: 
+          //       Column(
+          //         children: [
+          //           TextField(
+          //             decoration: haInputDecoration.typeMessageInChatScreen("Type Message"),),
+          //               myBottomBar(),
+          //         ],
+          //       ),
+                  
+          //          ),
+          //       ],
+          //         ) ,
+          //       ),
+      
+          //   ],
+              
+          // ),
           Stack(
             children: [
               Positioned(
                 bottom: 0.5,
                 child: Column(
+                children: [
+                   Container(
+                height: Get.height/7,
+                width: Get.width,
+                color: Colors.red,
+                child: 
+                Column(
                   children: [
-                 Container(
-                  height: Get.height/7,
-                  width: Get.width,
-                  color: Colors.red,
-                  child: 
-                  Column(
-                    children: [
-                      TextField(
-                        decoration: haInputDecoration.typeMessageInChatScreen("Type Message"),),
-                      
-                    ],
-                  ),
-                    
-                 ),
+                    TextField(
+                      decoration: haInputDecoration.typeMessageInChatScreen("Type Message"),),
+                        myBottomBar(),
                   ],
-                ) ,
-                )
+                ),
+                  
+                   ),
+                ],
+                  ) ,
+                ),
+      
             ],
               
-          ),
+          )
         
-         
           
-            
           ),
-         
-  
-         
-         
-
-         
+     
     );
   }
 }
@@ -99,7 +120,7 @@ class myBottomBar extends StatelessWidget{
         
          IconButton(
            onPressed: () {
-            
+        
          }, icon: Icon(Icons.emoji_emotions)),
             
             IconButton(
@@ -132,9 +153,5 @@ class myBottomBar extends StatelessWidget{
 
 }
 
-void bottomSheetsEmoji(){
-  
 
-   
 
-}

@@ -46,7 +46,6 @@ dependencies:
   camera: ^0.10.0+3
   path_provider: ^2.0.11
   path: ^1.8.2
-  emoji_picker_flutter: ^1.5.0
 
   
 
