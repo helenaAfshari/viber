@@ -145,7 +145,7 @@ class myBottomBar extends StatelessWidget{
             Row(
               children: [
                 Container(
-                  height: Get.height/8.1,
+                  height: Get.height/6.5,
                   width: Get.width/1.1,
                   color: Colors.white,
                   child: Column(
@@ -158,37 +158,58 @@ class myBottomBar extends StatelessWidget{
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
                           children: [
-                            Container(
-                              height: 50,
-                              width: 50,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.green,
-                              ),
-                              child: const Center(
-                                child: Icon(Icons.star,size: 40,color: Colors.white,)),
-                            
+                            Column(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.green,
+                                  ),
+                                  child: const Center(
+                                    child: Icon(Icons.star,size: 40,color: Colors.white,),
+                                  
+                                    ),
+                                    
+                                
+                                ),
+                                SizedBox(height: 4,),
+                                 Text("Saved"),
+                              ],
                             ),
                             const SizedBox(width: 5,),
-                            Container(
-                              height: 50,
-                              width: 50,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color.fromARGB(255, 2, 90, 243),
-                              ),
-                              child:const Icon(Icons.location_pin,size: 40,color: Colors.white,),
+                            Column(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Color.fromARGB(255, 2, 90, 243),
+                                  ),
+                                  child:const Icon(Icons.location_pin,size: 40,color: Colors.white,),
+                                ),
+                                 SizedBox(height: 4,),
+                                Text("Location")
+                              ],
                             ),
                              const SizedBox(width: 5,),
-                               Container(
+                               Column(
+                                 children: [
+                                   Container(
                               height: 50,
                               width: 50,
                               decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Color.fromARGB(255, 1, 8, 217),
+                                    shape: BoxShape.circle,
+                                    color: Color.fromARGB(255, 1, 8, 217),
                               ),
                               child: const Center(child: Icon(Icons.gif_sharp,size: 44,color: Colors.white,),),
                             ),
+                             SizedBox(height: 4,),
+                            Text("Tenor")
+                                 ],
+                               ),
                           ],
                         ),
                       ),
@@ -196,7 +217,7 @@ class myBottomBar extends StatelessWidget{
                         thickness: 1,
                         indent: 2,
                         endIndent: 6,
-                        color: Colors.red,
+                        color: Colors.black,
                       ),
                     
                     ],
@@ -205,25 +226,52 @@ class myBottomBar extends StatelessWidget{
               ],
             ),
            
-                 const Text("Extensions"),
+                 const Padding(
+                   padding: EdgeInsets.only(right: Dimens.RecentTextInBottomSheetChat),
+                   child: Text("Extensions"),
+                 ),
                   const SizedBox(height: 5,),
                       Container(
-                       height: Get.height/4,
+                       height: Get.height/4.1,
                        width: Get.width/1.1,
                        color: Colors.red,
-                       child: Row(
-                        children: [
-                          Container(
-                        height: 50,
-                        width: 50,
-                        decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.amber,
-                       ),
-                       ),
-                        ],
-                       ),
-                      ),
+                       
+                         child: Column(
+                          children: [
+                         Container(
+                          height: 50,
+                          width: 50,
+                          decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.amber,
+                         ),
+                         
+                         ),
+                         const SizedBox(height: 10,),
+                            Container(
+                          height: 50,
+                          width: 50,
+                          decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.amber,
+                         ),
+                         
+                         ),
+                         SizedBox(height: 10,),
+                            Container(
+                          height: 50,
+                          width: 50,
+                          decoration: const BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.amber,
+                         ),
+                         
+                         ),
+                      
+                           ],
+                         ),
+                      
+                      )
           ],
          ),
        ),
@@ -248,18 +296,9 @@ class myBottomBar extends StatelessWidget{
                                  //       color: Colors.amber,
                                  //     ),
                                  //   ),
-                                 
-                            
-             
-                      
-            
-         
-       
-       
-        
        
      
-     )
+     ),
   );
 }
 
