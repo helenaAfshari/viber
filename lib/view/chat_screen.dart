@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import 'package:viber_getx/component/input_decoration.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
-
+import 'package:viber_getx/constants/dimen.dart';
 
 class ChatScreen extends StatelessWidget {
    ChatScreen({super.key, 
@@ -50,33 +50,6 @@ class ChatScreen extends StatelessWidget {
       ),
          body: 
         
-          // Stack(
-          //   children: [
-          //     Positioned(
-          //       bottom: 0.5,
-          //       child: Column(
-          //       children: [
-          //          Container(
-          //       height: Get.height/7,
-          //       width: Get.width,
-          //       color: Colors.red,
-          //       child: 
-          //       Column(
-          //         children: [
-          //           TextField(
-          //             decoration: haInputDecoration.typeMessageInChatScreen("Type Message"),),
-          //               myBottomBar(),
-          //         ],
-          //       ),
-                  
-          //          ),
-          //       ],
-          //         ) ,
-          //       ),
-      
-          //   ],
-              
-          // ),
           Stack(
             children: [
               Positioned(
@@ -103,7 +76,8 @@ class ChatScreen extends StatelessWidget {
       
             ],
               
-          )
+          ),
+      
         
           
           ),
@@ -121,36 +95,172 @@ class myBottomBar extends StatelessWidget{
          IconButton(
            onPressed: () {
         
-         }, icon: Icon(Icons.emoji_emotions)),
+         }, icon: const Icon(Icons.emoji_emotions)),
             
             IconButton(
            onPressed: () {
            
-         }, icon: Icon(Icons.image)),
+         }, icon: const Icon(Icons.image)),
         
           IconButton(
            onPressed: () {
            
-         }, icon: Icon(Icons.camera_alt_outlined)),
+         }, icon: const Icon(Icons.camera_alt_outlined)),
+
+          IconButton(
+           onPressed: () {
+           BottomSheet();
+         }, icon: const Icon(CupertinoIcons.gift_fill)),
 
           IconButton(
            onPressed: () {
            
-         }, icon: Icon(CupertinoIcons.gift_fill)),
-
+         }, icon: const Icon(CupertinoIcons.time)),
           IconButton(
            onPressed: () {
            
-         }, icon: Icon(CupertinoIcons.time)),
-          IconButton(
-           onPressed: () {
-           
-         }, icon: Icon(Icons.menu_sharp)),
+         }, icon: const Icon(Icons.menu_sharp)),
 
      ]);
   }
 
 
+}
+
+
+ BottomSheet(){
+  Get.bottomSheet(
+     Container(
+     
+      decoration:const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
+      ),
+      
+       child: Padding(
+         padding: const EdgeInsets.all(17.0),
+         child: Column(
+          children: [
+            const Icon(Icons.backspace_outlined),
+            Row(
+              children: [
+                Container(
+                  height: Get.height/8.1,
+                  width: Get.width/1.1,
+                  color: Colors.white,
+                  child: Column(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(right: Dimens.RecentTextInBottomSheetChat),
+                        child: Text("Recents"),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.green,
+                              ),
+                              child: const Center(
+                                child: Icon(Icons.star,size: 40,color: Colors.white,)),
+                            
+                            ),
+                            const SizedBox(width: 5,),
+                            Container(
+                              height: 50,
+                              width: 50,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color.fromARGB(255, 2, 90, 243),
+                              ),
+                              child:const Icon(Icons.location_pin,size: 40,color: Colors.white,),
+                            ),
+                             const SizedBox(width: 5,),
+                               Container(
+                              height: 50,
+                              width: 50,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color.fromARGB(255, 1, 8, 217),
+                              ),
+                              child: const Center(child: Icon(Icons.gif_sharp,size: 44,color: Colors.white,),),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        indent: 2,
+                        endIndent: 6,
+                        color: Colors.red,
+                      ),
+                    
+                    ],
+                  )
+                ),
+              ],
+            ),
+           
+                 const Text("Extensions"),
+                  const SizedBox(height: 5,),
+                      Container(
+                       height: Get.height/4,
+                       width: Get.width/1.1,
+                       color: Colors.red,
+                       child: Row(
+                        children: [
+                          Container(
+                        height: 50,
+                        width: 50,
+                        decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.amber,
+                       ),
+                       ),
+                        ],
+                       ),
+                      ),
+          ],
+         ),
+       ),
+                      
+                      
+                         
+                                 // Container(
+                                 //   width: 50,
+                                 //   height: 50,
+                                 //   decoration: const BoxDecoration(
+                                 //     shape: BoxShape.circle,
+                                 //     color: Colors.green,   
+                                 //   ),
+                                 //   child: const Icon(Icons.star,color: Colors.white,size: 35,),
+                                 // ),
+                                 //  SizedBox(width: 5,),
+                                 //   Container(
+                                 //     height: 50,
+                                 //     width: 50,
+                                 //     decoration: BoxDecoration(
+                                 //       shape: BoxShape.circle,
+                                 //       color: Colors.amber,
+                                 //     ),
+                                 //   ),
+                                 
+                            
+             
+                      
+            
+         
+       
+       
+        
+       
+     
+     )
+  );
 }
 
 
