@@ -71,11 +71,11 @@ class haInputDecoration{
   return InputDecoration(
       hintText: hintText,
        focusedBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.white),
+        borderSide: BorderSide.none,
        ),
         enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(25),
-        borderSide: const BorderSide(color: Colors.white),
+        borderSide:  BorderSide.none,
        ),
       
 

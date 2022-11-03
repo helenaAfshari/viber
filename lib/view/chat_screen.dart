@@ -257,7 +257,7 @@ class myBottomBar extends StatelessWidget{
                          ),
                          
                          ),
-                         SizedBox(height: 10,),
+                         const SizedBox(height: 10,),
                             Container(
                           height: 50,
                           width: 50,
