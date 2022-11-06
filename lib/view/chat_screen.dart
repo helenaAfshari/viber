@@ -10,6 +10,7 @@ import 'package:viber_getx/component/input_decoration.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/dimen.dart';
+import 'package:viber_getx/gen/assets.gen.dart';
 
 class ChatScreen extends StatelessWidget {
    ChatScreen({super.key, 
@@ -24,6 +25,7 @@ class ChatScreen extends StatelessWidget {
 
     return SafeArea(
      child: Scaffold(
+     
       appBar: AppBar(
         iconTheme: IconThemeData(color: haSolidColors.colorIconBack),
       
@@ -52,6 +54,13 @@ class ChatScreen extends StatelessWidget {
         
           Stack(
             children: [
+              
+                Container(
+                color: Colors.white,
+                ),
+                 
+             Stack(
+            children: [
               Positioned(
                 bottom: 0.5,
                 child: Column(
@@ -77,8 +86,11 @@ class ChatScreen extends StatelessWidget {
             ],
               
           ),
+            ]
+          )             
+            
       
-        
+      
           
           ),
      
@@ -274,33 +286,74 @@ class myBottomBar extends StatelessWidget{
                       )
           ],
          ),
-       ),
-                      
-                      
-                         
-                                 // Container(
-                                 //   width: 50,
-                                 //   height: 50,
-                                 //   decoration: const BoxDecoration(
-                                 //     shape: BoxShape.circle,
-                                 //     color: Colors.green,   
-                                 //   ),
-                                 //   child: const Icon(Icons.star,color: Colors.white,size: 35,),
-                                 // ),
-                                 //  SizedBox(width: 5,),
-                                 //   Container(
-                                 //     height: 50,
-                                 //     width: 50,
-                                 //     decoration: BoxDecoration(
-                                 //       shape: BoxShape.circle,
-                                 //       color: Colors.amber,
-                                 //     ),
-                                 //   ),
-       
+       ),                        
      
      ),
   );
 }
+
+
+enum MessageStatus {
+  
+  delivered,
+  deliveredUserOfline,
+  deliveredUserOnline,
+  read,
+
+}
+
+enum MessageContentType{
+   image,
+   video,
+   voice,
+   text,
+}
+
+ 
+
+List Messages = [
+   {
+      'content':"hellooooo",
+      'time':'05:40',
+       'messageStatus':MessageStatus.read.name,
+       'userId':1234,
+   },
+     {
+      'content':"hellooooo",
+      'time':'05:40',
+       'messageStatus':MessageStatus.read.name,
+       'userId':5678,
+   },
+     {
+      'content':"hellooooo",
+      'time':'05:40',
+       'messageStatus':MessageStatus.read.name,
+       'userId':1234,
+   },
+     {
+      'content':"hellooooo",
+      'time':'05:40',
+       'messageStatus':MessageStatus.read.name,
+       'userId':5678,
+   },
+     {
+      'content':"hellooooo",
+      'time':'05:40',
+       'messageStatus':MessageStatus.read.name,
+       'userId':1234,
+   },
+     {
+      'content':"hellooooo",
+      'time':'05:40',
+       'messageStatus':MessageStatus.read.name,
+       'userId':5678,
+   },
+
+];
+
+
+
+
 
 
 

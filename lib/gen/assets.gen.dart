@@ -32,6 +32,9 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/Wall.jpg
+  AssetGenImage get wall => const AssetGenImage('assets/images/Wall.jpg');
+
   /// File path: assets/images/avatar .png
   AssetGenImage get avatar => const AssetGenImage('assets/images/avatar .png');
 }

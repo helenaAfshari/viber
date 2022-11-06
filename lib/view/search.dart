@@ -6,7 +6,6 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:viber_getx/constants/color_viber.dart';
-
 import '../controller/user_contact_controller.dart';
 
 class MyWidget extends StatelessWidget {
