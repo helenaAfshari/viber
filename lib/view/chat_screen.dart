@@ -15,12 +15,15 @@ class ChatScreen extends StatelessWidget {
     super.key,
   });
   final screen = [];
+  //TODO test and later get from hive
+  var myPhone = 1234;
 
   RxInt indexed = 0.obs;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        //AppBar
         appBar: AppBar(
           iconTheme: IconThemeData(color: haSolidColors.colorIconBack),
           backgroundColor: haSolidColors.colorBackgroundAppBarChatScreen,
@@ -63,25 +66,34 @@ class ChatScreen extends StatelessWidget {
             ),
           ],
         ),
-        body: Stack(children: [
+        body:
+        //Message list
+         Stack(
+          children: [
           Column(
             children: [
-              SizedBox(
-                height: Get.height / 1.3,
-                width: Get.width,
-                child: Container(
-                  color: haSolidColors.lightScafoldBackgroundColor,
-                  child: ListView.builder(
-                    itemCount: 5,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      return outputMessage();
-                    },
+              Expanded(
+                child: SizedBox(
+                  
+                  width: Get.width,
+                  child: Container(
+                    color: haSolidColors.lightScafoldBackgroundColor,
+                    child: ListView.builder(
+                      physics: BouncingScrollPhysics(),
+                      itemCount: Messages.length,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Messages[index]['userId'] == myPhone
+                            ? outputMessage(Messages[index]['content'])
+                            : inputMessage(Messages[index]['content']);
+                      },
+                    ),
                   ),
                 ),
               )
             ],
           ),
+          //Type Message Chat Box
           Stack(
             children: [
               Positioned(
@@ -91,7 +103,7 @@ class ChatScreen extends StatelessWidget {
                     Container(
                       height: Get.height / 7,
                       width: Get.width,
-                      color: Colors.red,
+                      color: Colors.white,
                       child: Column(
                         children: [
                           TextField(
@@ -112,11 +124,16 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
-  Widget outputMessage() {
+  Widget outputMessage(String msg) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.fromLTRB(
+        Dimens.xlarge*2,
+        Dimens.normal,
+        Dimens.normal,
+        0,
+      ),
       child: Container(
-        height: Get.height / 16,
+        
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.only(
@@ -126,6 +143,41 @@ class ChatScreen extends StatelessWidget {
             topRight: Radius.circular(0),
           ),
           color: haSolidColors.messageColor,
+          
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(msg),
+        ),
+      ),
+    );
+  }
+
+    Widget inputMessage(String msg) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(
+      
+        Dimens.normal,
+        Dimens.normal,
+          Dimens.xlarge*2,
+        0,
+      ),
+      child: Container(
+        
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(Dimens.normal),
+            bottomRight: Radius.circular(Dimens.normal),
+            topLeft: Radius.circular(0),
+            topRight: Radius.circular(Dimens.normal),
+          ),
+          color: haSolidColors.messageColor,
+          
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(msg),
         ),
       ),
     );
@@ -366,6 +418,122 @@ List Messages = [
     'userId': 1234,
   },
   {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+    {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
