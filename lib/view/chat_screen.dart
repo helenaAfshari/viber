@@ -214,7 +214,7 @@ BottomSheet() {
         padding: const EdgeInsets.all(17.0),
         child: Column(
           children: [
-            const Icon(Icons.backspace_outlined),
+            const Icon(Icons.backspace_outlined,size: 15,),
             Row(
               children: [
                 Container(
@@ -324,47 +324,97 @@ BottomSheet() {
               child: Text("Extensions"),
             ),
             const SizedBox(
-              height: 5,
+              height: 10,
             ),
-            Container(
-              height: Get.height / 4.1,
-              width: Get.width / 1.1,
-              color: Colors.red,
-              child: Column(
-                children: [
-                  Container(
+                 
+            Row(
+              children: [
+                Container(
                     height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.amber,
+                          width: 50,
+                          decoration:  BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: haSolidColors.colorGif,
+                ),
+                child: Icon(Icons.gif_box,color: Colors.white,size: Dimens.xlarge,),
+                ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10),
+                child: Column(
+                  children: const [
+                    Padding(
+                      padding: EdgeInsets.only(right: 20),
+                      child: Text("Create your own Gif"),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.amber,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.amber,
-                    ),
-                  ),
-                ],
+                    Text("Turn any video into aGif"),
+
+                  ],
+                ),
               ),
-            )
+              ],
+            ),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: Dimens.normal),
+                  child: Row(
+              children: [
+                  Container(
+                      height: 50,
+                            width: 50,
+                            decoration:  BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: haSolidColors.colorGames,
+                  ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(15),
+                      child: Icon(Icons.r_mobiledata,size: 40,),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Column(
+                      children: const [
+                        Padding(
+                          padding: EdgeInsets.only(right: 65),
+                          child: Text("Games"),
+                        ),
+                        Text("Search for games"),
+                      ],
+                    ),
+                  )
+              ],
+            ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: Dimens.normal),
+                  child: Row(
+              children: [
+                  Container(
+                      height: 50,
+                            width: 50,
+                            decoration:  BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: haSolidColors.colorLoveSticker,
+                  ),
+                  child: Icon(Icons.heart_broken_outlined),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Column(
+                      children: const [
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: Text("Share your lov with sticker"),
+                        ),
+                        Text("Search Thousands of sticker"),
+                      ],
+                    ),
+                  )
+              ],
+            ),
+                ),
+          
+    
           ],
         ),
       ),

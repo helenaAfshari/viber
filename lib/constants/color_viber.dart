@@ -55,4 +55,12 @@ class haSolidColors {
   static Color colorIconCalls = Color.fromARGB(255, 0, 0, 0);
   static Color colorIconCallsNested = Color.fromARGB(255, 9, 218, 187);
   static Color colorIconViber = Color.fromARGB(255, 0, 0, 0);
+
+  //icons in Botom ChatScreen 
+   static Color colorGif = Color.fromARGB(255, 1, 143, 15);
+   static Color colorGames = Color.fromARGB(255, 90, 130, 241);
+   static Color colorLoveSticker = Color.fromARGB(255, 252, 144, 3);
+
+
+
 }
