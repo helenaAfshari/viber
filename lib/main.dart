@@ -13,6 +13,7 @@ import 'package:viber_getx/view/main_screen.dart';
 import 'model/user_contact_list_model.dart';
 import 'view/calls_buttom_view/calls_in_viewall_screen.dart';
 
+
 void main() async{
   await Hive.initFlutter();
   Hive
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: RouteContactListScreen, page: () => ContactListScreen(),binding: BindingContactController()),
        ],      
       home:ChatScreen(),
-         
+      
       
     );
   }

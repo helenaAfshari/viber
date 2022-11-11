@@ -9,6 +9,8 @@ import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/dimen.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
+import 'package:location/location.dart';
+import 'package:file_picker/file_picker.dart';
 
 class ChatScreen extends StatelessWidget {
   ChatScreen({
@@ -339,11 +341,11 @@ BottomSheet() {
                 child: Icon(Icons.gif_box,color: Colors.white,size: Dimens.xlarge,),
                 ),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: Dimens.smal),
                 child: Column(
                   children: const [
                     Padding(
-                      padding: EdgeInsets.only(right: 20),
+                      padding: EdgeInsets.only(right: Dimens.smal*2.2),
                       child: Text("Create your own Gif"),
                     ),
                     Text("Turn any video into aGif"),
@@ -367,11 +369,11 @@ BottomSheet() {
                   ),
                     child: const Padding(
                       padding: EdgeInsets.all(15),
-                      child: Icon(Icons.r_mobiledata,size: 40,),
+                      child: Icon(Icons.r_mobiledata,size: Dimens.xlarge*1.2,),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(left: Dimens.smal),
                     child: Column(
                       children: const [
                         Padding(
