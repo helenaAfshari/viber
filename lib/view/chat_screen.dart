@@ -1,5 +1,9 @@
 import 'dart:developer';
+import 'dart:io';
+
+
 import 'dart:ui';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,9 +13,11 @@ import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/dimen.dart';
 import 'package:viber_getx/controller/emoji_controller.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'package:viber_getx/controller/picker_file_controller.dart';
 
 class ChatScreen extends StatelessWidget {
   EmojiPickerControllerr controller = Get.put(EmojiPickerControllerr());
+  FilePickerController filePickerController = Get.put(FilePickerController());
 
   ChatScreen({
     super.key,
@@ -78,7 +84,7 @@ class ChatScreen extends StatelessWidget {
                 child: Container(
                   color: haSolidColors.lightScafoldBackgroundColor,
                   child: ListView.builder(
-                    physics: BouncingScrollPhysics(),
+                    physics: const BouncingScrollPhysics(),
                     itemCount: Messages.length,
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
@@ -91,6 +97,7 @@ class ChatScreen extends StatelessWidget {
               ),
               boxChatTextField(),
               emojiPicker(),
+            
          
             ],
           ),
@@ -98,6 +105,7 @@ class ChatScreen extends StatelessWidget {
       ),
     ));
   }
+  
 //emojiPicker
   Widget emojiPicker() {
     return Column(
@@ -157,6 +165,7 @@ class ChatScreen extends StatelessWidget {
       ),
     );
   }
+  
 
   Widget outputMessage(String msg) {
     return Padding(
@@ -232,7 +241,9 @@ class iconsInBottomBar extends StatelessWidget {
             controller.focusNode.canRequestFocus = true;
           },
           icon: const Icon(Icons.emoji_emotions)),
-      IconButton(onPressed: () {}, icon: const Icon(Icons.image)),
+      IconButton(onPressed: () {
+        // pickFile();
+      }, icon: const Icon(Icons.image)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
       IconButton(
           onPressed: () {
@@ -244,7 +255,13 @@ class iconsInBottomBar extends StatelessWidget {
     ]);
   }
 }
-
+ pickFile(){
+    Container(
+      height: 20,
+      width: 30,
+      color: Colors.amber,
+    );
+  }
 //BottomSheet in ChatBox
 BottomSheet() {
   Get.bottomSheet(

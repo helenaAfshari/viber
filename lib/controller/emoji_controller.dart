@@ -16,6 +16,7 @@ class EmojiPickerControllerr  extends GetxController{
     focusNode.addListener(() {
        isEmojiVisible.value = false;
     });
+    
    }
      @override
    void onClose(){
