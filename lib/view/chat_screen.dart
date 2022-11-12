@@ -4,22 +4,25 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:viber_getx/component/input_decoration.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/dimen.dart';
+import 'package:viber_getx/controller/emoji_controller.dart';
 import 'package:viber_getx/gen/assets.gen.dart';
-import 'package:location/location.dart';
-import 'package:file_picker/file_picker.dart';
 
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'package:viber_getx/view/emoji_screen.dart';
 class ChatScreen extends StatelessWidget {
+  EmojiPickerControllerr controller =Get.put(EmojiPickerControllerr());
   ChatScreen({
     super.key,
   });
   final screen = [];
   //TODO test and later get from hive
   var myPhone = 1234;
-
+   
   RxInt indexed = 0.obs;
   @override
   Widget build(BuildContext context) {
@@ -92,7 +95,42 @@ class ChatScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              Obx(
+              ()=> Offstage(
+                offstage: !controller.isEmojiVisible.value,
+                child: SizedBox(
+                  height: 240,
+                  child: EmojiPicker(
+                    onEmojiSelected: (category, emoji) {
+                     //when select emoji in show text in textEditing
+                      controller.textEditingController.text=controller.textEditingController.text+emoji.emoji;
+                    },
+                    onBackspacePressed: () {
+                      
+                    },
+                    config:  const Config(
+                      columns: 7,
+                      verticalSpacing: 0,
+                      horizontalSpacing: 2,
+                      initCategory: Category.SMILEYS,
+                      emojiSizeMax: 26,
+                      bgColor: Color.fromARGB(255, 190, 218, 235),
+                      indicatorColor: Color.fromARGB(255, 4, 30, 53),
+                      iconColor: Colors.grey,
+                      iconColorSelected: Color.fromARGB(255, 4, 62, 109),
+                      showRecentsTab: true,
+                      recentsLimit: 5,
+                       gridPadding: EdgeInsets.only(left: 10,right: 10),
+                    enableSkinTones: true,
+                      categoryIcons: CategoryIcons(),
+                      buttonMode: ButtonMode.CUPERTINO,
+            
+                    ),
+                  ),
+                ),
+              ),
+            ),
             ],
           ),
           //Type Message Chat Box
@@ -101,6 +139,7 @@ class ChatScreen extends StatelessWidget {
               Positioned(
                 bottom: 0.5,
                 child: Column(
+
                   children: [
                     Container(
                       height: Get.height / 7,
@@ -112,10 +151,12 @@ class ChatScreen extends StatelessWidget {
                             decoration: haInputDecoration
                                 .typeMessageInChatScreen("Type Message"),
                           ),
-                          myBottomBar(),
+                          myBottomBar(controller: controller,),
                         ],
                       ),
                     ),
+                        
+                       
                   ],
                 ),
               ),
@@ -187,10 +228,24 @@ class ChatScreen extends StatelessWidget {
 }
 
 class myBottomBar extends StatelessWidget {
+  EmojiPickerControllerr controller = EmojiPickerControllerr();
+
+  myBottomBar({
+   required this.controller,
+    super.key,
+    });
+  
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      IconButton(onPressed: () {}, icon: const Icon(Icons.emoji_emotions)),
+      IconButton(onPressed: () {
+      
+        controller.isEmojiVisible.value=!controller.isEmojiVisible.value;
+      controller.focusNode.unfocus();
+      controller.focusNode.canRequestFocus=true;
+
+
+      }, icon: const Icon(Icons.emoji_emotions)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.image)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
       IconButton(
@@ -203,6 +258,44 @@ class myBottomBar extends StatelessWidget {
     ]);
   }
 }
+
+addEmojiPicker(){
+             Offstage(
+                 offstage: false,
+               child: EmojiPicker(
+              onEmojiSelected:(category, emoji) {
+      
+               },
+                  onBackspacePressed: () {
+      
+                    },
+                   config: const Config(
+                          columns: 7,
+                          verticalSpacing: 0,
+                          horizontalSpacing: 0,
+                          initCategory: Category.SMILEYS,
+                          bgColor: Colors.red,
+                          indicatorColor: Colors.blue,
+                          iconColor: Colors.grey,
+                          iconColorSelected: Colors.blue,
+                          showRecentsTab: true,
+                          recentsLimit: 28,
+                          //noRecentStyle and Text
+                          tabIndicatorAnimDuration: kTabScrollDuration,
+                          categoryIcons: CategoryIcons(),
+                          buttonMode: ButtonMode.MATERIAL,
+                          
+
+    ),
+     ),
+);
+
+}
+
+
+
+
+
 
 BottomSheet() {
   Get.bottomSheet(
@@ -423,6 +516,8 @@ BottomSheet() {
     ),
   );
 }
+
+
 
 enum MessageStatus {
   delivered,
