@@ -1,185 +1,172 @@
 import 'dart:developer';
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:viber_getx/component/input_decoration.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/dimen.dart';
 import 'package:viber_getx/controller/emoji_controller.dart';
-import 'package:viber_getx/gen/assets.gen.dart';
-
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
-import 'package:viber_getx/view/emoji_screen.dart';
+
 class ChatScreen extends StatelessWidget {
-  EmojiPickerControllerr controller =Get.put(EmojiPickerControllerr());
+  EmojiPickerControllerr controller = Get.put(EmojiPickerControllerr());
+
   ChatScreen({
     super.key,
   });
   final screen = [];
   //TODO test and later get from hive
   var myPhone = 1234;
-   
+
   RxInt indexed = 0.obs;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        //AppBar
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: haSolidColors.colorIconBack),
-          backgroundColor: haSolidColors.colorBackgroundAppBarChatScreen,
-          title: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 90),
-                child: Text(
-                  "name",
-                  style: haTextStyle.nameChatScreen,
-                ),
+        child: Scaffold(
+      //AppBar
+      appBar: AppBar(
+        iconTheme: IconThemeData(color: haSolidColors.colorIconBack),
+        backgroundColor: haSolidColors.colorBackgroundAppBarChatScreen,
+        title: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 90),
+              child: Text(
+                "name",
+                style: haTextStyle.nameChatScreen,
               ),
-              Text(
-                "Last Seen on octobr 10",
-                style: haTextStyle.lastSeenChatScreen,
-              ),
-            ],
-          ),
-          actions: [
-            Icon(
-              Icons.call,
-              color: haSolidColors.colorIconPhone,
             ),
-            const SizedBox(
-              width: 20,
-            ),
-            Icon(
-              Icons.video_call_outlined,
-              color: haSolidColors.colorIconVideoCall,
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            Icon(
-              Icons.menu,
-              color: haSolidColors.colorMenu,
-            ),
-            const SizedBox(
-              width: 5,
+            Text(
+              "Last Seen on octobr 10",
+              style: haTextStyle.lastSeenChatScreen,
             ),
           ],
         ),
-        body:
-        //Message list
-        
-              Stack(
-                children: [
-                   Column(
-                  children: [
-                    Expanded(child:  Container(
-                          color: haSolidColors.lightScafoldBackgroundColor,
-                          child: ListView.builder(
-                            physics: BouncingScrollPhysics(),
-                            itemCount: Messages.length,
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) {
-                              return Messages[index]['userId'] == myPhone
-                                  ? outputMessage(Messages[index]['content'])
-                                  : inputMessage(Messages[index]['content']);
-                            },
-                            
-                          ),
-                          
-                        ),),
-              
-                        Container(
-                           height: Get.height/7,
-                         width: Get.width,
-                        color: Colors.white,
-                        child: Column(
-                          children: [
-                             TextField(
-                          focusNode: controller.focusNode,
-                          controller: controller.textEditingController,
-                              decoration: haInputDecoration
-                                  .typeMessageInChatScreen("Type Message"),
-                             ),
-                                myBottomBar(controller: controller),
-                            
-                          ],
-                        ),
-                        ),
-              
-              
-               Column(
-                children: [
-                         Obx(
-                ()=> Offstage(
-                  offstage: !controller.isEmojiVisible.value,
-                  child: SizedBox(
-                    height: 250,
-                    child: EmojiPicker(
-                      onEmojiSelected: (category, emoji) {
-                       //when select emoji in show text in textEditing
-                        controller.textEditingController.text=controller.textEditingController.text+emoji.emoji;
-                      },
-                      onBackspacePressed: () {
-                        
-                      },
-                      config:   const Config(
-                      columns: 7,
-                      verticalSpacing: 0,
-                      horizontalSpacing: 2,
-                      initCategory: Category.SMILEYS,
-                      emojiSizeMax: 26,
-                      bgColor: Color.fromARGB(255, 190, 218, 235),
-                      indicatorColor: Color.fromARGB(255, 4, 30, 53),
-                      iconColor: Colors.grey,
-                      iconColorSelected: Color.fromARGB(255, 4, 62, 109),
-                      showRecentsTab: true,
-                      recentsLimit: 5,
-                       gridPadding: EdgeInsets.only(left: 10,right: 10),
-                    enableSkinTones: true,
-                      categoryIcons: CategoryIcons(),
-                      buttonMode: ButtonMode.CUPERTINO,
-            
-                    ),
-                    ),
+        actions: [
+          Icon(
+            Icons.call,
+            color: haSolidColors.colorIconPhone,
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          Icon(
+            Icons.video_call_outlined,
+            color: haSolidColors.colorIconVideoCall,
+          ),
+          const SizedBox(
+            width: 20,
+          ),
+          Icon(
+            Icons.menu,
+            color: haSolidColors.colorMenu,
+          ),
+          const SizedBox(
+            width: 5,
+          ),
+        ],
+      ),
+      body:
+          //Message list
+          Stack(
+        children: [
+          Column(
+            children: [
+              Expanded(
+                child: Container(
+                  color: haSolidColors.lightScafoldBackgroundColor,
+                  child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    itemCount: Messages.length,
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return Messages[index]['userId'] == myPhone
+                          ? outputMessage(Messages[index]['content'])
+                          : inputMessage(Messages[index]['content']);
+                    },
                   ),
                 ),
-                          )
-                ],
-               )
-                  ],
-                ),
-              
-                ],
-                
               ),
-             
-             
-                  
-          
-                   )
-      );
-              
-    
-        
-     
+              boxChatTextField(),
+              emojiPicker(),
+         
+            ],
+          ),
+        ],
+      ),
+    ));
+  }
+//emojiPicker
+  Widget emojiPicker() {
+    return Column(
+      children: [
+        Obx(
+          () => Offstage(
+            offstage: !controller.isEmojiVisible.value,
+            child: SizedBox(
+              height: 250,
+              child: EmojiPicker(
+                onEmojiSelected: (category, emoji) {
+                  //when select emoji in show text in textEditing
+                  controller.textEditingController.text =
+                      controller.textEditingController.text + emoji.emoji;
+                },
+                onBackspacePressed: () {},
+                config: const Config(
+                  columns: 7,
+                  verticalSpacing: 0,
+                  horizontalSpacing: 2,
+                  initCategory: Category.SMILEYS,
+                  emojiSizeMax: 26,
+                  bgColor: Color.fromARGB(255, 190, 218, 235),
+                  indicatorColor: Color.fromARGB(255, 4, 30, 53),
+                  iconColor: Colors.grey,
+                  iconColorSelected: Color.fromARGB(255, 4, 62, 109),
+                  showRecentsTab: true,
+                  recentsLimit: 5,
+                  gridPadding: EdgeInsets.only(left: 10, right: 10),
+                  enableSkinTones: true,
+                  categoryIcons: CategoryIcons(),
+                  buttonMode: ButtonMode.CUPERTINO,
+                ),
+              ),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget boxChatTextField() {
+    return Container(
+      height: Get.height / 7,
+      width: Get.width,
+      color: Colors.white,
+      child: Column(
+        children: [
+          TextField(
+            focusNode: controller.focusNode,
+            controller: controller.textEditingController,
+            decoration:
+                haInputDecoration.typeMessageInChatScreen("Type Message"),
+          ),
+          iconsInBottomBar(controller: controller),
+        ],
+      ),
+    );
   }
 
   Widget outputMessage(String msg) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
-        Dimens.xlarge*2,
+        Dimens.xlarge * 2,
         Dimens.normal,
         Dimens.normal,
         0,
       ),
       child: Container(
-        
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.only(
@@ -189,7 +176,6 @@ class ChatScreen extends StatelessWidget {
             topRight: Radius.circular(0),
           ),
           color: haSolidColors.messageColor,
-          
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -199,17 +185,15 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
-    Widget inputMessage(String msg) {
+  Widget inputMessage(String msg) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
-      
         Dimens.normal,
         Dimens.normal,
-          Dimens.xlarge*2,
+        Dimens.xlarge * 2,
         0,
       ),
       child: Container(
-        
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.only(
@@ -219,7 +203,6 @@ class ChatScreen extends StatelessWidget {
             topRight: Radius.circular(Dimens.normal),
           ),
           color: haSolidColors.messageColor,
-          
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -230,26 +213,25 @@ class ChatScreen extends StatelessWidget {
   }
 }
 
-class myBottomBar extends StatelessWidget {
+//ButtonIconsInChatBox
+class iconsInBottomBar extends StatelessWidget {
   final EmojiPickerControllerr controller;
 
-  myBottomBar({
-   required this.controller,
+  iconsInBottomBar({
+    required this.controller,
     super.key,
-    });
-  
+  });
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-      IconButton(onPressed: () {
-
-      controller.isEmojiVisible.value=!controller.isEmojiVisible.value;
-      controller.focusNode.unfocus();
-      controller.focusNode.canRequestFocus=true;
-
-
-      }, icon: const Icon(Icons.emoji_emotions)),
+    return Row(children: [
+      IconButton(
+          onPressed: () {
+            controller.isEmojiVisible.value = !controller.isEmojiVisible.value;
+            controller.focusNode.unfocus();
+            controller.focusNode.canRequestFocus = true;
+          },
+          icon: const Icon(Icons.emoji_emotions)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.image)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
       IconButton(
@@ -263,44 +245,7 @@ class myBottomBar extends StatelessWidget {
   }
 }
 
-addEmojiPicker(){
-             Offstage(
-                 offstage: false,
-               child: EmojiPicker(
-              onEmojiSelected:(category, emoji) {
-      
-               },
-                  onBackspacePressed: () {
-      
-                    },
-                   config: const Config(
-                          columns: 7,
-                          verticalSpacing: 0,
-                          horizontalSpacing: 0,
-                          initCategory: Category.SMILEYS,
-                          bgColor: Colors.red,
-                          indicatorColor: Colors.blue,
-                          iconColor: Colors.grey,
-                          iconColorSelected: Colors.blue,
-                          showRecentsTab: true,
-                          recentsLimit: 28,
-                          //noRecentStyle and Text
-                          tabIndicatorAnimDuration: kTabScrollDuration,
-                          categoryIcons: CategoryIcons(),
-                          buttonMode: ButtonMode.MATERIAL,
-                          
-
-    ),
-     ),
-);
-
-}
-
-
-
-
-
-
+//BottomSheet in ChatBox
 BottomSheet() {
   Get.bottomSheet(
     Container(
@@ -313,7 +258,10 @@ BottomSheet() {
         padding: const EdgeInsets.all(17.0),
         child: Column(
           children: [
-            const Icon(Icons.backspace_outlined,size: 15,),
+            const Icon(
+              Icons.backspace_outlined,
+              size: 15,
+            ),
             Row(
               children: [
                 Container(
@@ -348,10 +296,10 @@ BottomSheet() {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text("Saved"),
+                                  const Text("Saved"),
                                 ],
                               ),
                               const SizedBox(
@@ -372,10 +320,10 @@ BottomSheet() {
                                       color: Colors.white,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text("Location")
+                                  const Text("Location")
                                 ],
                               ),
                               const SizedBox(
@@ -398,10 +346,10 @@ BottomSheet() {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 4,
                                   ),
-                                  Text("Tenor")
+                                  const Text("Tenor")
                                 ],
                               ),
                             ],
@@ -425,48 +373,52 @@ BottomSheet() {
             const SizedBox(
               height: 10,
             ),
-                 
             Row(
               children: [
                 Container(
-                    height: 50,
-                          width: 50,
-                          decoration:  BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: haSolidColors.colorGif,
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: haSolidColors.colorGif,
+                  ),
+                  child: const Icon(
+                    Icons.gif_box,
+                    color: Colors.white,
+                    size: Dimens.xlarge,
+                  ),
                 ),
-                child: Icon(Icons.gif_box,color: Colors.white,size: Dimens.xlarge,),
+                Padding(
+                  padding: const EdgeInsets.only(left: Dimens.smal),
+                  child: Column(
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.only(right: Dimens.smal * 2.2),
+                        child: Text("Create your own Gif"),
+                      ),
+                      Text("Turn any video into aGif"),
+                    ],
+                  ),
                 ),
-              Padding(
-                padding: const EdgeInsets.only(left: Dimens.smal),
-                child: Column(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(right: Dimens.smal*2.2),
-                      child: Text("Create your own Gif"),
-                    ),
-                    Text("Turn any video into aGif"),
-
-                  ],
-                ),
-              ),
               ],
             ),
-
-                Padding(
-                  padding: const EdgeInsets.only(top: Dimens.normal),
-                  child: Row(
-              children: [
+            Padding(
+              padding: const EdgeInsets.only(top: Dimens.normal),
+              child: Row(
+                children: [
                   Container(
-                      height: 50,
-                            width: 50,
-                            decoration:  BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: haSolidColors.colorGames,
-                  ),
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: haSolidColors.colorGames,
+                    ),
                     child: const Padding(
                       padding: EdgeInsets.all(15),
-                      child: Icon(Icons.r_mobiledata,size: Dimens.xlarge*1.2,),
+                      child: Icon(
+                        Icons.r_mobiledata,
+                        size: Dimens.xlarge * 1.2,
+                      ),
                     ),
                   ),
                   Padding(
@@ -481,21 +433,21 @@ BottomSheet() {
                       ],
                     ),
                   )
-              ],
+                ],
+              ),
             ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: Dimens.normal),
-                  child: Row(
-              children: [
+            Padding(
+              padding: const EdgeInsets.only(top: Dimens.normal),
+              child: Row(
+                children: [
                   Container(
-                      height: 50,
-                            width: 50,
-                            decoration:  BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: haSolidColors.colorLoveSticker,
-                  ),
-                  child: Icon(Icons.heart_broken_outlined),
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: haSolidColors.colorLoveSticker,
+                    ),
+                    child: const Icon(Icons.heart_broken_outlined),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
@@ -509,19 +461,15 @@ BottomSheet() {
                       ],
                     ),
                   )
-              ],
+                ],
+              ),
             ),
-                ),
-          
-    
           ],
         ),
       ),
     ),
   );
 }
-
-
 
 enum MessageStatus {
   delivered,
@@ -574,117 +522,121 @@ List Messages = [
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
-    'content': "How do you know",
-    'time': '05:40',
-    'messageStatus': MessageStatus.read.name,
-    'userId': 5678,
-  },    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
-    'content': "How do you know",
-    'time': '05:40',
-    'messageStatus': MessageStatus.read.name,
-    'userId': 5678,
-  },    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
-    'content': "How do you know",
-    'time': '05:40',
-    'messageStatus': MessageStatus.read.name,
-    'userId': 5678,
-  },    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
-    'content': "How do you know",
-    'time': '05:40',
-    'messageStatus': MessageStatus.read.name,
-    'userId': 5678,
-  },    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,
     'userId': 5678,
   },
-    {
+  {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+  {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+  {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+  {
+    'content': "How do you know",
+    'time': '05:40',
+    'messageStatus': MessageStatus.read.name,
+    'userId': 5678,
+  },
+  {
     'content': "How do you know",
     'time': '05:40',
     'messageStatus': MessageStatus.read.name,

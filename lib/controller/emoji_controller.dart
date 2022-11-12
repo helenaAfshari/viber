@@ -8,6 +8,7 @@ class EmojiPickerControllerr  extends GetxController{
   var isEmojiVisible = false.obs;
    TextEditingController textEditingController = TextEditingController();
    FocusNode focusNode = FocusNode();
+  
 
    @override
    void onInit(){
