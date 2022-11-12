@@ -97,7 +97,7 @@ class ChatScreen extends StatelessWidget {
                         Container(
                            height: Get.height/7,
                          width: Get.width,
-                        color: Colors.amberAccent,
+                        color: Colors.white,
                         child: Column(
                           children: [
                              TextField(
