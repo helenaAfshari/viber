@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:get/get.dart';
 import 'package:viber_getx/controller/emoji_controller.dart';
+import 'package:viber_getx/view/chat_screen.dart';
 // ignore: must_be_immutable
 class EmojiPickerScreen extends StatelessWidget{
   EmojiPickerControllerr controllerr = Get.put(EmojiPickerControllerr());
@@ -25,11 +26,24 @@ class EmojiPickerScreen extends StatelessWidget{
         children: [
           Column(
           children: [
-            Expanded(child: Container(
-               
-              color: Colors.red,
-              child: Column(children: [Text("data")]),
-            )),
+            ////
+          Expanded(child:  Container(
+                        color: Colors.red,
+                        child:  ListView.builder(
+                          physics: BouncingScrollPhysics(),
+                          itemCount: Messages.length,
+                          shrinkWrap: true,
+                          itemBuilder: (context, index) {
+                           return Text("data");
+                              
+                          },
+                          
+                        ),
+                        
+                      
+                      ),
+                      ),
+          ////
             Container(
               height: 70,
               child: Row(
@@ -49,16 +63,17 @@ class EmojiPickerScreen extends StatelessWidget{
                       enabledBorder: OutlineInputBorder(
                      borderRadius: BorderRadius.circular(25),
                      borderSide:  BorderSide.none,
-       ),
-      
-
-  )),
+                 ),
+                
+            
+            )),
                         ),
                      ),
                    ],
               ),
               
             ),
+
             Obx(
               ()=> Offstage(
                 offstage: !controllerr.isEmojiVisible.value,
@@ -107,12 +122,13 @@ class EmojiPickerScreen extends StatelessWidget{
 }
 
 class Emoji extends StatelessWidget {
+   final EmojiPickerControllerr controllerr;
   const Emoji({
     Key? key,
     required this.controllerr,
   }) : super(key: key);
 
-  final EmojiPickerControllerr controllerr;
+ 
 
   @override
   Widget build(BuildContext context) {

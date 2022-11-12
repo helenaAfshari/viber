@@ -73,43 +73,62 @@ class ChatScreen extends StatelessWidget {
         ),
         body:
         //Message list
-         Stack(
-          children: [
-          Column(
-            children: [
-              Expanded(
-                child: SizedBox(
-                  
-                  width: Get.width,
-                  child: Container(
-                    color: haSolidColors.lightScafoldBackgroundColor,
-                    child: ListView.builder(
-                      physics: BouncingScrollPhysics(),
-                      itemCount: Messages.length,
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return Messages[index]['userId'] == myPhone
-                            ? outputMessage(Messages[index]['content'])
-                            : inputMessage(Messages[index]['content']);
+        
+              Stack(
+                children: [
+                   Column(
+                  children: [
+                    Expanded(child:  Container(
+                          color: haSolidColors.lightScafoldBackgroundColor,
+                          child: ListView.builder(
+                            physics: BouncingScrollPhysics(),
+                            itemCount: Messages.length,
+                            shrinkWrap: true,
+                            itemBuilder: (context, index) {
+                              return Messages[index]['userId'] == myPhone
+                                  ? outputMessage(Messages[index]['content'])
+                                  : inputMessage(Messages[index]['content']);
+                            },
+                            
+                          ),
+                          
+                        ),),
+              
+                        Container(
+                           height: Get.height/7,
+                         width: Get.width,
+                        color: Colors.amberAccent,
+                        child: Column(
+                          children: [
+                             TextField(
+                          focusNode: controller.focusNode,
+                          controller: controller.textEditingController,
+                              decoration: haInputDecoration
+                                  .typeMessageInChatScreen("Type Message"),
+                             ),
+                                myBottomBar(controller: controller),
+                            
+                          ],
+                        ),
+                        ),
+              
+              
+               Column(
+                children: [
+                         Obx(
+                ()=> Offstage(
+                  offstage: !controller.isEmojiVisible.value,
+                  child: SizedBox(
+                    height: 250,
+                    child: EmojiPicker(
+                      onEmojiSelected: (category, emoji) {
+                       //when select emoji in show text in textEditing
+                        controller.textEditingController.text=controller.textEditingController.text+emoji.emoji;
                       },
-                    ),
-                  ),
-                ),
-              ),
-              Obx(
-              ()=> Offstage(
-                offstage: !controller.isEmojiVisible.value,
-                child: SizedBox(
-                  height: 240,
-                  child: EmojiPicker(
-                    onEmojiSelected: (category, emoji) {
-                     //when select emoji in show text in textEditing
-                      controller.textEditingController.text=controller.textEditingController.text+emoji.emoji;
-                    },
-                    onBackspacePressed: () {
-                      
-                    },
-                    config:  const Config(
+                      onBackspacePressed: () {
+                        
+                      },
+                      config:   const Config(
                       columns: 7,
                       verticalSpacing: 0,
                       horizontalSpacing: 2,
@@ -127,44 +146,28 @@ class ChatScreen extends StatelessWidget {
                       buttonMode: ButtonMode.CUPERTINO,
             
                     ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-            ],
-          ),
-          //Type Message Chat Box
-          Stack(
-            children: [
-              Positioned(
-                bottom: 0.5,
-                child: Column(
-
-                  children: [
-                    Container(
-                      height: Get.height / 7,
-                      width: Get.width,
-                      color: Colors.white,
-                      child: Column(
-                        children: [
-                          TextField(
-                            decoration: haInputDecoration
-                                .typeMessageInChatScreen("Type Message"),
-                          ),
-                          myBottomBar(controller: controller,),
-                        ],
-                      ),
-                    ),
-                        
-                       
+                          )
+                ],
+               )
                   ],
                 ),
+              
+                ],
+                
               ),
-            ],
-          ),
-        ]),
-      ),
-    );
+             
+             
+                  
+          
+                   )
+      );
+              
+    
+        
+     
   }
 
   Widget outputMessage(String msg) {
@@ -228,7 +231,7 @@ class ChatScreen extends StatelessWidget {
 }
 
 class myBottomBar extends StatelessWidget {
-  EmojiPickerControllerr controller = EmojiPickerControllerr();
+  final EmojiPickerControllerr controller;
 
   myBottomBar({
    required this.controller,
@@ -237,10 +240,11 @@ class myBottomBar extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
+    return Row(
+      children: [
       IconButton(onPressed: () {
-      
-        controller.isEmojiVisible.value=!controller.isEmojiVisible.value;
+
+      controller.isEmojiVisible.value=!controller.isEmojiVisible.value;
       controller.focusNode.unfocus();
       controller.focusNode.canRequestFocus=true;
 
