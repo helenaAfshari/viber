@@ -11,13 +11,17 @@ import 'package:viber_getx/component/input_decoration.dart';
 import 'package:viber_getx/component/text_style.dart';
 import 'package:viber_getx/constants/color_viber.dart';
 import 'package:viber_getx/constants/dimen.dart';
-import 'package:viber_getx/controller/emoji_controller.dart';
+import 'package:viber_getx/controller/chat_box_controller/emoji_controller.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
-import 'package:viber_getx/controller/picker_file_controller.dart';
+import 'package:viber_getx/controller/chat_box_controller/gallery_controller.dart';
+import 'package:viber_getx/controller/chat_box_controller/menu_controller.dart';
+import 'package:viber_getx/controller/chat_box_controller/picker_file_controller.dart';
 
 class ChatScreen extends StatelessWidget {
   EmojiPickerControllerr controller = Get.put(EmojiPickerControllerr());
   FilePickerController filePickerController = Get.put(FilePickerController());
+  MenuControllerr menuControllerr = Get.put(MenuControllerr());
+  GalleryController galleryController = Get.put(GalleryController());
 
   ChatScreen({
     super.key,
@@ -96,8 +100,9 @@ class ChatScreen extends StatelessWidget {
                 ),
               ),
               boxChatTextField(),
-              emojiPicker(),
-            
+                 emojiPicker(),
+                 pickFile(),
+                 
          
             ],
           ),
@@ -115,6 +120,7 @@ class ChatScreen extends StatelessWidget {
             offstage: !controller.isEmojiVisible.value,
             child: SizedBox(
               height: 250,
+
               child: EmojiPicker(
                 onEmojiSelected: (category, emoji) {
                   //when select emoji in show text in textEditing
@@ -147,6 +153,41 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
+ Widget  pickFile(){
+  return
+   Column(
+      children: [
+        Obx(
+          () => Offstage(
+            offstage: !galleryController.isGalleryVisible.value,
+            child: SizedBox(    
+              height: 250,
+              child:  GridView.builder(               
+                itemCount:20, 
+                shrinkWrap: true,
+                gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisSpacing: 5,
+                      mainAxisSpacing: 5,
+                  crossAxisCount: 3,
+                  childAspectRatio: 1
+                ) , 
+                itemBuilder:(context, index) {
+                  return Container(
+                    color: Colors.blue,
+                    width: 50,
+                    height: 100,
+                    child:  
+                    Text("ff"),
+                   );
+                }),
+      
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
   Widget boxChatTextField() {
     return Container(
       height: Get.height / 7,
@@ -160,7 +201,7 @@ class ChatScreen extends StatelessWidget {
             decoration:
                 haInputDecoration.typeMessageInChatScreen("Type Message"),
           ),
-          iconsInBottomBar(controller: controller),
+          iconsInBottomBar(controller: controller,menuControllerr: menuControllerr,gallery: galleryController),
         ],
       ),
     );
@@ -225,9 +266,12 @@ class ChatScreen extends StatelessWidget {
 //ButtonIconsInChatBox
 class iconsInBottomBar extends StatelessWidget {
   final EmojiPickerControllerr controller;
-
-  iconsInBottomBar({
+   final MenuControllerr menuControllerr;
+   final GalleryController gallery;
+  const iconsInBottomBar({
     required this.controller,
+     required this.menuControllerr,
+     required this.gallery,
     super.key,
   });
 
@@ -242,7 +286,9 @@ class iconsInBottomBar extends StatelessWidget {
           },
           icon: const Icon(Icons.emoji_emotions)),
       IconButton(onPressed: () {
-        // pickFile();
+
+          gallery.isGalleryVisible.value = !gallery.isGalleryVisible.value;
+
       }, icon: const Icon(Icons.image)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
       IconButton(
@@ -251,17 +297,30 @@ class iconsInBottomBar extends StatelessWidget {
           },
           icon: const Icon(CupertinoIcons.gift_fill)),
       IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.time)),
-      IconButton(onPressed: () {}, icon: const Icon(Icons.menu_sharp)),
+      IconButton(onPressed: () {
+        menuControllerr.isMenu.value = !menuControllerr.isMenu.value;
+      }, icon: const Icon(Icons.menu_sharp)),
     ]);
   }
 }
- pickFile(){
-    Container(
-      height: 20,
-      width: 30,
-      color: Colors.amber,
+
+ Widget menuSharp(){
+    return Obx(
+      () =>  ListView.builder(
+        itemCount: 2,
+        shrinkWrap: true,
+        itemBuilder: (context, index) {
+        return Container(
+          color: Colors.amber,
+          height: 20,
+          width: 10,
+          child: Text("gg"),
+        );
+      },),
     );
-  }
+}
+
+
 //BottomSheet in ChatBox
 BottomSheet() {
   Get.bottomSheet(

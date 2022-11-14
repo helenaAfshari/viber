@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
          GetPage(name: RouteCallsInViewAllRecentCalls, page: () => CallsInViewAllRecentCalls(),),
         GetPage(name: RouteContactListScreen, page: () => ContactListScreen(),binding: BindingContactController()),
        ],      
-      home:GridList(),
+      home:ChatScreen(),
       
       
     );
