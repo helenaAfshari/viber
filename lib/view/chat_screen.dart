@@ -1,9 +1,5 @@
-import 'dart:developer';
+
 import 'dart:io';
-
-
-import 'dart:ui';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,7 +13,6 @@ import 'package:viber_getx/controller/chat_box_controller/gallery_controller.dar
 import 'package:viber_getx/controller/chat_box_controller/menu_controller.dart';
 import 'package:viber_getx/controller/chat_box_controller/picker_file_controller.dart';
 import 'package:viber_getx/services/pick_file.dart';
-
 class ChatScreen extends StatelessWidget {
   EmojiPickerControllerr controller = Get.put(EmojiPickerControllerr());
   FilePickerController filePickerController = Get.put(FilePickerController());
@@ -155,6 +150,8 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
+
+//pickFile
  Widget  pickFilee(){
   //TODO condision open filePicker or ImagePicker  where show image or textEditing
   return
@@ -291,7 +288,6 @@ class iconsInBottomBar extends StatelessWidget {
           },
           icon: const Icon(Icons.emoji_emotions)),
       IconButton(onPressed: () {
-
           gallery.isGalleryVisible.value = !gallery.isGalleryVisible.value;
              //pickFile
              pickFile();
