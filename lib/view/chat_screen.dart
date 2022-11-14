@@ -179,7 +179,7 @@ class ChatScreen extends StatelessWidget {
                     child:  
                     // Image.file(File(filePickerController.file.value.path!)),
                     filePickerController.file.value.name=='nothing'?
-                    Text("data"):Image.file(File(filePickerController.file.value.path!)),
+                    const Text("data"):Image.file(File(filePickerController.file.value.path!)),
                    );
                 }),
       
