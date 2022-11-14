@@ -16,13 +16,14 @@ import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:viber_getx/controller/chat_box_controller/gallery_controller.dart';
 import 'package:viber_getx/controller/chat_box_controller/menu_controller.dart';
 import 'package:viber_getx/controller/chat_box_controller/picker_file_controller.dart';
+import 'package:viber_getx/services/pick_file.dart';
 
 class ChatScreen extends StatelessWidget {
   EmojiPickerControllerr controller = Get.put(EmojiPickerControllerr());
   FilePickerController filePickerController = Get.put(FilePickerController());
   MenuControllerr menuControllerr = Get.put(MenuControllerr());
   GalleryController galleryController = Get.put(GalleryController());
-
+  
   ChatScreen({
     super.key,
   });
@@ -101,7 +102,7 @@ class ChatScreen extends StatelessWidget {
               ),
               boxChatTextField(),
                  emojiPicker(),
-                 pickFile(),
+                 pickFilee(),
                  
          
             ],
@@ -126,6 +127,7 @@ class ChatScreen extends StatelessWidget {
                   //when select emoji in show text in textEditing
                   controller.textEditingController.text =
                       controller.textEditingController.text + emoji.emoji;
+                    
                 },
                 onBackspacePressed: () {},
                 config: const Config(
@@ -153,7 +155,8 @@ class ChatScreen extends StatelessWidget {
     );
   }
 
- Widget  pickFile(){
+ Widget  pickFilee(){
+  //TODO condision open filePicker or ImagePicker  where show image or textEditing
   return
    Column(
       children: [
@@ -163,7 +166,7 @@ class ChatScreen extends StatelessWidget {
             child: SizedBox(    
               height: 250,
               child:  GridView.builder(               
-                itemCount:20, 
+                itemCount:2, 
                 shrinkWrap: true,
                 gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisSpacing: 5,
@@ -177,7 +180,9 @@ class ChatScreen extends StatelessWidget {
                     width: 50,
                     height: 100,
                     child:  
-                    Text("ff"),
+                    // Image.file(File(filePickerController.file.value.path!)),
+                    filePickerController.file.value.name=='nothing'?
+                    Text("data"):Image.file(File(filePickerController.file.value.path!)),
                    );
                 }),
       
@@ -288,7 +293,8 @@ class iconsInBottomBar extends StatelessWidget {
       IconButton(onPressed: () {
 
           gallery.isGalleryVisible.value = !gallery.isGalleryVisible.value;
-
+             //pickFile
+             pickFile();
       }, icon: const Icon(Icons.image)),
       IconButton(onPressed: () {}, icon: const Icon(Icons.camera_alt_outlined)),
       IconButton(
