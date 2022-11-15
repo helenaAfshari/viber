@@ -52,6 +52,7 @@ dependencies:
   images_picker: ^1.2.11
   google_maps_flutter: ^2.1.8
   geolocator: ^9.0.2
+  playify: ^2.2.0
   
 
 

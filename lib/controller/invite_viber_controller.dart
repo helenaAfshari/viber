@@ -1,6 +1,4 @@
 
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -27,7 +25,6 @@ class InviteViberController extends GetxController{
           UserContactListModel userContactListModel = element;
             contactList.add(userContactListModel);  
             print(userContactListModel) ;
-         
           });
 
        }

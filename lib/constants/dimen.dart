@@ -7,7 +7,7 @@ class Dimens {
   static const xlarge = 32.0;
   static const bottomInChatScreen = 150.0;
    static const heightBottomChatScreen = 603.0;
-  static const RecentTextInBottomSheetChat = 308.0;
+ 
 
 
 }

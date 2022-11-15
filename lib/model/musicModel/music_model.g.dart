@@ -1,38 +1,32 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_inbox_list_model.dart';
+part of 'music_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class UserInboxListModelAdapter extends TypeAdapter<UserInboxListModel> {
+class MusicModelAdapter extends TypeAdapter<MusicModel> {
   @override
-  final int typeId = 1;
+  final int typeId = 0;
 
   @override
-  UserInboxListModel read(BinaryReader reader) {
+  MusicModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return UserInboxListModel(
-      name: fields[0] as String,
-      phone: fields[1] as String,
-      profileUser: fields[2] as String,
+    return MusicModel(
+      singerName: fields[0] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, UserInboxListModel obj) {
+  void write(BinaryWriter writer, MusicModel obj) {
     writer
-      ..writeByte(3)
-      ..writeByte(0)
-      ..write(obj.name)
       ..writeByte(1)
-      ..write(obj.phone)
-      ..writeByte(2)
-      ..write(obj.profileUser);
+      ..writeByte(0)
+      ..write(obj.singerName);
   }
 
   @override
@@ -41,7 +35,7 @@ class UserInboxListModelAdapter extends TypeAdapter<UserInboxListModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is UserInboxListModelAdapter &&
+      other is MusicModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

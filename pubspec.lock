@@ -583,6 +583,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.0"
+  playify:
+    dependency: "direct main"
+    description:
+      name: playify
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.0"
   plugin_platform_interface:
     dependency: transitive
     description:

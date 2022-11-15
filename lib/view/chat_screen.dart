@@ -22,7 +22,6 @@ class ChatScreen extends StatelessWidget {
   ChatScreen({
     super.key,
   });
-  final screen = [];
   //TODO test and later get from hive
   var myPhone = 1234;
 
@@ -38,7 +37,7 @@ class ChatScreen extends StatelessWidget {
         title: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 90),
+              padding: const EdgeInsets.only(right:Dimens.normal+58),
               child: Text(
                 "name",
                 style: haTextStyle.nameChatScreen,
@@ -56,21 +55,21 @@ class ChatScreen extends StatelessWidget {
             color: haSolidColors.colorIconPhone,
           ),
           const SizedBox(
-            width: 20,
+            width: Dimens.large-3,
           ),
           Icon(
             Icons.video_call_outlined,
             color: haSolidColors.colorIconVideoCall,
           ),
           const SizedBox(
-            width: 20,
+            width: Dimens.large-3,
           ),
           Icon(
             Icons.menu,
             color: haSolidColors.colorMenu,
           ),
           const SizedBox(
-            width: 5,
+            width: Dimens.large-10,
           ),
         ],
       ),
@@ -95,7 +94,7 @@ class ChatScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              boxChatTextField(),
+                 boxChatTextField(),
                  emojiPicker(),
                  pickFilee(),
                  
@@ -115,7 +114,7 @@ class ChatScreen extends StatelessWidget {
           () => Offstage(
             offstage: !controller.isEmojiVisible.value,
             child: SizedBox(
-              height: 250,
+              height: Dimens.xlarge*8,
 
               child: EmojiPicker(
                 onEmojiSelected: (category, emoji) {
@@ -137,7 +136,7 @@ class ChatScreen extends StatelessWidget {
                   iconColorSelected: Color.fromARGB(255, 4, 62, 109),
                   showRecentsTab: true,
                   recentsLimit: 5,
-                  gridPadding: EdgeInsets.only(left: 10, right: 10),
+                  gridPadding: EdgeInsets.only(left: Dimens.smal, right: Dimens.smal),
                   enableSkinTones: true,
                   categoryIcons: CategoryIcons(),
                   buttonMode: ButtonMode.CUPERTINO,
@@ -161,7 +160,7 @@ class ChatScreen extends StatelessWidget {
           () => Offstage(
             offstage: !galleryController.isGalleryVisible.value,
             child: SizedBox(    
-              height: 250,
+              height: Dimens.xlarge*8,
               child:  GridView.builder(               
                 itemCount:2, 
                 shrinkWrap: true,
@@ -174,10 +173,8 @@ class ChatScreen extends StatelessWidget {
                 itemBuilder:(context, index) {
                   return Container(
                     color: Colors.blue,
-                    width: 50,
-                    height: 100,
+                    width: Dimens.xlarge,  
                     child:  
-                    // Image.file(File(filePickerController.file.value.path!)),
                     filePickerController.file.value.name=='nothing'?
                     const Text("data"):Image.file(File(filePickerController.file.value.path!)),
                    );
@@ -338,7 +335,7 @@ BottomSheet() {
           children: [
             const Icon(
               Icons.backspace_outlined,
-              size: 15,
+              size: Dimens.normal,
             ),
             Row(
               children: [
@@ -350,18 +347,19 @@ BottomSheet() {
                       children: [
                         const Padding(
                           padding: EdgeInsets.only(
-                              right: Dimens.RecentTextInBottomSheetChat),
+                         
+                              right: Dimens.xlarge*9.1),
                           child: Text("Recents"),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.all(Dimens.smal),
                           child: Row(
                             children: [
                               Column(
                                 children: [
                                   Container(
-                                    height: 50,
-                                    width: 50,
+                                    height: Dimens.xlarge+18,
+                                    width: Dimens.xlarge+18,
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Colors.green,
@@ -369,49 +367,49 @@ BottomSheet() {
                                     child: const Center(
                                       child: Icon(
                                         Icons.star,
-                                        size: 40,
+                                        size: Dimens.xlarge*1,
                                         color: Colors.white,
                                       ),
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 4,
+                                    height: Dimens.smal,
                                   ),
                                   const Text("Saved"),
                                 ],
                               ),
                               const SizedBox(
-                                width: 5,
+                                width: Dimens.smal-2,
                               ),
                               Column(
                                 children: [
                                   Container(
-                                    height: 50,
-                                    width: 50,
+                                    height: Dimens.xlarge+18,
+                                    width: Dimens.xlarge+18,
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Color.fromARGB(255, 2, 90, 243),
                                     ),
                                     child: const Icon(
                                       Icons.location_pin,
-                                      size: 40,
+                                      size: Dimens.xlarge*1,
                                       color: Colors.white,
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 4,
+                                    height: Dimens.smal,
                                   ),
                                   const Text("Location")
                                 ],
                               ),
                               const SizedBox(
-                                width: 5,
+                                width: Dimens.smal-2,
                               ),
                               Column(
                                 children: [
                                   Container(
-                                    height: 50,
-                                    width: 50,
+                                    height: Dimens.xlarge+18,
+                                    width: Dimens.xlarge+18,
                                     decoration: const BoxDecoration(
                                       shape: BoxShape.circle,
                                       color: Color.fromARGB(255, 1, 8, 217),
@@ -419,13 +417,13 @@ BottomSheet() {
                                     child: const Center(
                                       child: Icon(
                                         Icons.gif_sharp,
-                                        size: 44,
+                                        size: Dimens.xlarge*1.1,
                                         color: Colors.white,
                                       ),
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 4,
+                                    height:Dimens.smal-2,
                                   ),
                                   const Text("Tenor")
                                 ],
@@ -434,9 +432,9 @@ BottomSheet() {
                           ),
                         ),
                         const Divider(
-                          thickness: 1,
-                          indent: 2,
-                          endIndent: 6,
+                          thickness: Dimens.smal/9,
+                          indent: Dimens.smal/8,
+                          endIndent: Dimens.smal/8,
                           color: Colors.black,
                         ),
                       ],
@@ -445,17 +443,17 @@ BottomSheet() {
             ),
             const Padding(
               padding:
-                  EdgeInsets.only(right: Dimens.RecentTextInBottomSheetChat),
+                  EdgeInsets.only(right:Dimens.xlarge*9.1 ),
               child: Text("Extensions"),
             ),
             const SizedBox(
-              height: 10,
+              height: Dimens.smal+2,
             ),
             Row(
               children: [
                 Container(
-                  height: 50,
-                  width: 50,
+                  height: Dimens.xlarge+18,
+                  width: Dimens.xlarge+18,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: haSolidColors.colorGif,
@@ -485,14 +483,14 @@ BottomSheet() {
               child: Row(
                 children: [
                   Container(
-                    height: 50,
-                    width: 50,
+                    height: Dimens.xlarge+18,
+                    width: Dimens.xlarge+18,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: haSolidColors.colorGames,
                     ),
                     child: const Padding(
-                      padding: EdgeInsets.all(15),
+                      padding: EdgeInsets.all(Dimens.normal-1),
                       child: Icon(
                         Icons.r_mobiledata,
                         size: Dimens.xlarge * 1.2,
@@ -504,7 +502,7 @@ BottomSheet() {
                     child: Column(
                       children: const [
                         Padding(
-                          padding: EdgeInsets.only(right: 65),
+                          padding: EdgeInsets.only(right: Dimens.xlarge+35),
                           child: Text("Games"),
                         ),
                         Text("Search for games"),
@@ -519,8 +517,8 @@ BottomSheet() {
               child: Row(
                 children: [
                   Container(
-                    height: 50,
-                    width: 50,
+                    height: Dimens.xlarge+18,
+                    width: Dimens.xlarge+18,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: haSolidColors.colorLoveSticker,
@@ -528,14 +526,17 @@ BottomSheet() {
                     child: const Icon(Icons.heart_broken_outlined),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(left:  Dimens.smal),
                     child: Column(
                       children: const [
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
-                          child: Text("Share your lov with sticker"),
+                          padding: EdgeInsets.only(right:Dimens.xlarge+20),
+                          child: Text("Share your love with sticker"),
                         ),
-                        Text("Search Thousands of sticker"),
+                        Padding(
+                          padding: EdgeInsets.only(right: Dimens.large+12),
+                          child: Text("Search Thousands of sticker"),
+                        ),
                       ],
                     ),
                   )
