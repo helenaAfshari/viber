@@ -9,8 +9,11 @@ import 'package:viber_getx/model/user_inbox_list_model.dart';
 import 'package:viber_getx/view/chat_screen.dart';
 import 'package:viber_getx/view/contact_list_screen.dart';
 import 'package:viber_getx/view/main_screen.dart';
+import 'package:viber_getx/view/music_screen.dart';
+import 'model/musicModel/music_model.dart';
 import 'model/user_contact_list_model.dart';
 import 'view/calls_buttom_view/calls_in_viewall_screen.dart';
+
 
 
 void main() async{
@@ -18,6 +21,7 @@ void main() async{
   Hive
   ..registerAdapter(UserContactListModelAdapter())
   ..registerAdapter(UserInboxListModelAdapter())
+  ..registerAdapter(MusicModelAdapter())
   ..registerAdapter(MessageModelAdapter());
   runApp( MyApp());
 }
@@ -39,7 +43,7 @@ class MyApp extends StatelessWidget {
          GetPage(name: RouteCallsInViewAllRecentCalls, page: () => CallsInViewAllRecentCalls(),),
         GetPage(name: RouteContactListScreen, page: () => ContactListScreen(),binding: BindingContactController()),
        ],      
-      home:ChatScreen(),
+      home:MusicScreen(),
       
       
     );
@@ -48,6 +52,8 @@ class MyApp extends StatelessWidget {
 String RouteMainScreen = '/MainScreen';
 String RouteCallsInViewAllRecentCalls = '/CallsInViewAllRecentCalls';
 String RouteContactListScreen = '/ContactListScreen';
+
+
 
 
 

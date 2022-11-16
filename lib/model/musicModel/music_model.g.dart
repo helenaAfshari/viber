@@ -8,7 +8,7 @@ part of 'music_model.dart';
 
 class MusicModelAdapter extends TypeAdapter<MusicModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 3;
 
   @override
   MusicModel read(BinaryReader reader) {
@@ -17,7 +17,7 @@ class MusicModelAdapter extends TypeAdapter<MusicModel> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return MusicModel(
-      singerName: fields[0] as String,
+      linkMusic: fields[0] as AssetsAudioPlayer,
     );
   }
 
@@ -26,7 +26,7 @@ class MusicModelAdapter extends TypeAdapter<MusicModel> {
     writer
       ..writeByte(1)
       ..writeByte(0)
-      ..write(obj.singerName);
+      ..write(obj.linkMusic);
   }
 
   @override
