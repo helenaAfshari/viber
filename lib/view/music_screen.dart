@@ -3,7 +3,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../controller/musicController/music_controller.dart';
 
 class MusicScreen extends StatefulWidget {
