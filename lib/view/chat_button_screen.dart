@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:viber_getx/component/text_style.dart';
@@ -35,7 +34,8 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                 title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(MyString.titleViberText, style:haTextStyle. nameViberStyle),
+                      Text(MyString.titleViberText,
+                          style: haTextStyle.nameViberStyle),
                       Padding(
                         padding: const EdgeInsets.only(left: 199),
                         child: Icon(
@@ -52,18 +52,19 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                 pinned: false,
                 floating: true,
                 expandedHeight: 100,
-                bottom: TabBar(tabs: [
-                  Container(
-                    height: 45,
-                    width: Get.width,
-                    decoration: BoxDecoration(
-                      color: haSolidColors.colorBackgroundAppBarMyNote,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
+                bottom: TabBar(
+                  tabs: [
+                    Container(
+                      height: 45,
+                      width: Get.width,
+                      decoration: BoxDecoration(
+                        color: haSolidColors.colorBackgroundAppBarMyNote,
+                        borderRadius: const BorderRadius.all(Radius.circular(8)),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Container(
                             height: 45,
                             width: 45,
                             decoration: BoxDecoration(
@@ -71,7 +72,7 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                               color: haSolidColors.backgroundColorCircularShape,
                             ),
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 10,left: 5),
+                              padding: const EdgeInsets.only(top: 10, left: 5),
                               child: Column(
                                 children: [
                                   Row(
@@ -81,7 +82,8 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                                         width: 12,
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
-                                            image: AssetImage(Assets.icons.tick.path),
+                                            image: AssetImage(
+                                                Assets.icons.tick.path),
                                           ),
                                         ),
                                       ),
@@ -90,21 +92,22 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                                         width: 12,
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
-                                            image: AssetImage(Assets.icons.line.path),
+                                            image: AssetImage(
+                                                Assets.icons.line.path),
                                           ),
                                         ),
                                       ),
                                     ],
                                   ),
-
-                                    Row(
+                                  Row(
                                     children: [
                                       Container(
                                         height: 12,
                                         width: 12,
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
-                                            image: AssetImage(Assets.icons.tick.path),
+                                            image: AssetImage(
+                                                Assets.icons.tick.path),
                                           ),
                                         ),
                                       ),
@@ -113,7 +116,8 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                                         width: 12,
                                         decoration: BoxDecoration(
                                           image: DecorationImage(
-                                            image: AssetImage(Assets.icons.line.path),
+                                            image: AssetImage(
+                                                Assets.icons.line.path),
                                           ),
                                         ),
                                       ),
@@ -122,63 +126,64 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                                 ],
                               ),
                             ),
-                            ),
-                           
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          children: [
-                            Text(
-                              MyString.myNoteText,
-                              style: haTextStyle.myNoteTextStyle,
-                            ),
-                            Text(
-                              MyString.messageText,
-                              style: haTextStyle.massegeViberOutTextStyle,
-                            )
-                          ],
-                        ),
-                             Padding(
-                    padding: const EdgeInsets.only(left: 148),
-                    child: Column(
-                      children: [
-                        Row(
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                MyString.myNoteText,
+                                style: haTextStyle.myNoteTextStyle,
+                              ),
+                              Text(
+                                MyString.messageText,
+                                style: haTextStyle.massegeViberOutTextStyle,
+                              )
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 148),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    // Text("date",style: TextStyle(color: unselectedBottomBar),),
 
-                          children: [
-                            // Text("date",style: TextStyle(color: unselectedBottomBar),),
-
+                                    Container(
+                                      height: 12,
+                                      width: 12,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          image: AssetImage(
+                                              Assets.icons.doubleTick.path),
+                                        ),
+                                      ),
+                                    ),
+                                    const Text(
+                                      "12:17 pm",
+                                      style: TextStyle(
+                                          fontSize: 11, color: Colors.black38),
+                                    ),
+                                  ],
+                                ),
                                 Container(
-                                        height: 12,
-                                        width: 12,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-
-                                            image: AssetImage(Assets.icons.doubleTick.path),
-                                          ),
-                                        ),
-                                       ),
-                                       Text("12:17 pm",style: TextStyle(fontSize: 11,color: Colors.black38),),
-
-                          ],
-                        ),
-                          Container(
-                                        height: Get.height/50,
-                                        width: Get.width/6,
-                                        decoration: BoxDecoration(
-                                          image: DecorationImage(
-
-                                            image: AssetImage(Assets.icons.pined.path),
-                                          ),
-                                        ),
-                                       ),
-                      ],
+                                  height: Get.height / 50,
+                                  width: Get.width / 6,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage(Assets.icons.pined.path),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                      ],
-                    ),
-                  ),
-                ],
+                  ],
                 ),
               ),
             ],
@@ -193,8 +198,7 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                             onTap: () {
-                          
-                               Get.to(ChatScreen());
+                              Get.to(ChatScreen());
                             },
 
                             //TODO image path and hard cod
@@ -211,29 +215,14 @@ class _ChatBottomScreenState extends State<ChatBottomScreen> {
             ),
           ),
         ),
-             floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton(
           onPressed: () {
             Get.toNamed('/ContactListScreen');
           },
           backgroundColor: haSolidColors.backgroundColorFloatingAction,
           child: Icon(Icons.message_outlined),
-
         ),
       ),
     );
-      
-    
-
-    //     floatingActionButton: FloatingActionButton(
-    //       onPressed: () {
-    //         Get.toNamed('/ContactListScreen');
-    //       },
-    //       backgroundColor: colorFloatingAction,
-    //       child: Icon(Icons.message_outlined),
-
-    //     ),
-    //     bottomNavigationBar: BottomBar(),
-    //   ),
-    // );
   }
 }

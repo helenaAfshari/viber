@@ -1,7 +1,9 @@
 
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:viber_getx/component/input_decoration.dart';
 import 'package:viber_getx/component/text_style.dart';
@@ -75,8 +77,7 @@ class ChatScreen extends StatelessWidget {
       ),
       body:
           //Message list
-          Stack(
-        children: [
+         
           Column(
             children: [
               Expanded(
@@ -94,6 +95,7 @@ class ChatScreen extends StatelessWidget {
                   ),
                 ),
               ),
+            
                  boxChatTextField(),
                  emojiPicker(),
                  pickFilee(),
@@ -102,8 +104,8 @@ class ChatScreen extends StatelessWidget {
          
             ],
           ),
-        ],
-      ),
+        
+      
     ));
   }
   
@@ -214,11 +216,11 @@ class ChatScreen extends StatelessWidget {
             Obx(
               () => Offstage(
                 offstage: !menuControllerr.isMenu.value,
+                 
                 child: Container(
                   height: Dimens.xlarge*8,
                   width: double.infinity,
                   color: haSolidColors.backgroundColorCall,
-                  
                   child: 
                   Padding(
                     padding: const EdgeInsets.all(Dimens.smal),
@@ -234,8 +236,8 @@ class ChatScreen extends StatelessWidget {
                         const SizedBox(height: Dimens.normal,),
                         Row(children:const [
                           Icon(Icons.location_pin),
-                          Text("Send Location")
-                        ],)
+                          Text("Send Location"),
+                        ],),
                       ],
                     ),
                   ),
