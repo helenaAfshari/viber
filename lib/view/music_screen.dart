@@ -39,7 +39,7 @@ class _MusicScreenState extends State<MusicScreen>
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                  InkWell(child: const Icon(CupertinoIcons.backward_fill),onTap: (){
-                   saveMusic.audioPlayer.seekBy(const Duration(seconds: -10));
+                   saveMusic.audioPlayer.seekBy(const Duration(seconds: -2));
                  },),
                   GestureDetector(
                     onTap: () {
@@ -50,12 +50,12 @@ class _MusicScreenState extends State<MusicScreen>
                       icon: AnimatedIcons.play_pause,
                       progress: iconController,
                       size: 50,
-                      color: Colors.black,
+                      color: Color.fromARGB(255, 154, 32, 32),
                     ),
                   ),
-                  InkWell(child: const Icon(CupertinoIcons.forward_fill),onTap: (){
-                     saveMusic.audioPlayer.seekBy(const Duration(seconds: 10));
-                     saveMusic.audioPlayer.seek(const Duration(seconds: 10));
+                  InkWell(child: const Icon(CupertinoIcons.forward_fill,color: Colors.amber,),onTap: (){
+                     saveMusic.audioPlayer.seekBy(const Duration(seconds: 200));
+                     saveMusic.audioPlayer.seek(const Duration(seconds: 200));
                    saveMusic.audioPlayer.next();
                   },),
                 ],
@@ -85,7 +85,6 @@ class _MusicScreenState extends State<MusicScreen>
     super.dispose();
   }
 }
-
 
 
 

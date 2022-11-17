@@ -97,6 +97,7 @@ class ChatScreen extends StatelessWidget {
                  boxChatTextField(),
                  emojiPicker(),
                  pickFilee(),
+                 menuSharp(),
                  
          
             ],
@@ -205,6 +206,46 @@ class ChatScreen extends StatelessWidget {
       ),
     );
   }
+   
+   //menu
+   Widget menuSharp(){
+    return Column(
+           children: [
+            Obx(
+              () => Offstage(
+                offstage: !menuControllerr.isMenu.value,
+                child: Container(
+                  height: Dimens.xlarge*8,
+                  width: double.infinity,
+                  color: haSolidColors.backgroundColorCall,
+                  
+                  child: 
+                  Padding(
+                    padding: const EdgeInsets.all(Dimens.smal),
+                    child: Column(
+                      children: [
+                        Row(
+                          children:const [
+                            Icon(Icons.contact_page_outlined),
+                             
+                            Text("Share Contact"),
+                          ],
+                        ),
+                        const SizedBox(height: Dimens.normal,),
+                        Row(children:const [
+                          Icon(Icons.location_pin),
+                          Text("Send Location")
+                        ],)
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+           ],
+    );
+    
+}
   
 
   Widget outputMessage(String msg) {
@@ -277,6 +318,7 @@ class iconsInBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
+      //emojiPicker
       IconButton(
           onPressed: () {
             controller.isEmojiVisible.value = !controller.isEmojiVisible.value;
@@ -295,29 +337,15 @@ class iconsInBottomBar extends StatelessWidget {
             BottomSheet();
           },
           icon: const Icon(CupertinoIcons.gift_fill)),
-      IconButton(onPressed: () {}, icon: const Icon(CupertinoIcons.time)),
       IconButton(onPressed: () {
         menuControllerr.isMenu.value = !menuControllerr.isMenu.value;
+         
       }, icon: const Icon(Icons.menu_sharp)),
     ]);
   }
 }
 
- Widget menuSharp(){
-    return Obx(
-      () =>  ListView.builder(
-        itemCount: 2,
-        shrinkWrap: true,
-        itemBuilder: (context, index) {
-        return Container(
-          color: Colors.amber,
-          height: 20,
-          width: 10,
-          child: Text("gg"),
-        );
-      },),
-    );
-}
+
 
 
 //BottomSheet in ChatBox
