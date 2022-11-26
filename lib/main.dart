@@ -46,8 +46,6 @@ class MyApp extends StatelessWidget {
         GetPage(name: RouteContactListScreen, page: () => ContactListScreen(),binding: BindingContactController()),
        ],      
       home:ChatScreen(),
-      
-      
     );
   }
 }

@@ -78,7 +78,6 @@ class haInputDecoration{
         borderSide:  BorderSide.none,
        ),
       
-
   );
 }
 }
