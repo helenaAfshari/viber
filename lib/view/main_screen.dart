@@ -5,10 +5,6 @@ import 'package:viber_getx/controller/bottom_bar_controller.dart';
 import 'package:viber_getx/controller/user_inbox_list_controller%20.dart';
 import 'package:viber_getx/component/bottom_bar.dart';
 
-
-
-
-
 class MainScreen extends StatelessWidget {
    RxBool selectedBottomIndex = false.obs;
    UserInboxListController userInboxListController = Get.put(UserInboxListController());
@@ -20,9 +16,6 @@ class MainScreen extends StatelessWidget {
 
   final TextStyle selectedLabelStyle =
       const TextStyle( fontWeight: FontWeight.w500, fontSize: 10);
-
-  
-  
 
   
      
