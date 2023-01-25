@@ -18,7 +18,6 @@ class MainScreen extends StatelessWidget {
       const TextStyle( fontWeight: FontWeight.w500, fontSize: 10);
 
   
-     
   @override
   Widget build(BuildContext context) {
 

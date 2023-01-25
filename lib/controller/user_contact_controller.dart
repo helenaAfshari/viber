@@ -12,6 +12,7 @@ class UserContactController extends GetxController{
      TextEditingController phoneTextEditingController = TextEditingController();
 
      RxList<UserContactListModel>contactList = RxList();
+     RxList<UserContactListModel> contact = RxList();
       
       @override
        void onInit()async{
@@ -40,6 +41,7 @@ class UserContactController extends GetxController{
           });
 
      }
+  
 
 
      readContact()async{
@@ -54,6 +56,8 @@ class UserContactController extends GetxController{
          );
      }
 
+    
+
      editContact(int index)async{
          var box = await Hive.openBox(HiveFieldConstants.userContactListBox);
          UserContactListModel userContactListModel = box.getAt(index);
@@ -67,6 +71,12 @@ class UserContactController extends GetxController{
          readContact();
           
      }
+
+      edit(int index)async{
+          var box = await Hive.openBox(HiveFieldConstants.userContactListBox);
+          UserContactListModel userContactListModel = box.getAt(index);
+          
+      }
 
      searchContact(String searchKey)async{
         contactList.clear();

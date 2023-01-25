@@ -10,7 +10,6 @@ import 'package:viber_getx/view/main_screen.dart';
 
   class BottomBar extends StatefulWidget {
    BottomBar({super.key});
-
   @override
   State<BottomBar> createState() => _BottomBarState();
 }
@@ -18,7 +17,6 @@ import 'package:viber_getx/view/main_screen.dart';
 class _BottomBarState extends State<BottomBar> {
  BottomBarController bottomBarController = Get.put(BottomBarController());
      
-
       TextStyle unselectedLabelStyle = const TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: 10);
